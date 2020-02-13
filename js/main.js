@@ -34,11 +34,6 @@ if(window.location.pathname=="/ScreenDayPro2/index.php"){
 
     })
 }
-<<<<<<< HEAD
-=======
- 
-
->>>>>>> 4a49301de76b698cd9214ee9048822dcf6d48675
 // pour calculer pourcetage de difference entre ce mois et le dernier mois
 function increasedecrease(thismonth,lastmonth){
     var output="";
