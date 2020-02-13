@@ -258,7 +258,7 @@
 </div>
 
 <!-- Left Sidebar -->
-<?php $path=$_SERVER["DOCUMENT_ROOT"]."/Screenday/pages/"; include($path."menugauche.html");?>
+<?php $path=$_SERVER["DOCUMENT_ROOT"]."/ScreenDayPro2/pages/"; include($path."menugauche.html");?>
 
     <!-- Right Sidebar -->
 <aside id="rightsidebar" class="right-sidebar">
@@ -442,7 +442,7 @@
                                     </ul> -->
                                     <p class="text-muted"><?php echo $_SESSION['riad'][3]?></p>
                                 </div>
-                                <div class="col-4">                                    
+                                <!-- <div class="col-4">                                    
                                     <small>Following</small>
                                     <h5>852</h5>
                                 </div>
@@ -453,7 +453,7 @@
                                 <div class="col-4">                                    
                                     <small>Post</small>
                                     <h5>234</h5>
-                                </div>                            
+                                </div>                             -->
                             </div>
                         </div>
                     </div>
@@ -467,7 +467,7 @@
                             <hr>
                             <ul class="list-unstyled">
                                 <li>
-                                    <div>Photoshop</div>
+                                    <div>Qualité Service</div>
                                     <div class="progress m-b-20">
                                         <div class="progress-bar l-blue " role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%"> <span class="sr-only">62% Complete</span> </div>
                                     </div>
@@ -506,16 +506,16 @@
                             <h2><strong>Media</strong> Gallery</h2>
                         </div>
                         <div class="body">
-                            <p>All pictures taken from <a href="https://pexels.com/" target="_blank">pexels.com</a></p>
+                            <p>Tous les Photos <a href="profile.php" target="_blank"><?php  echo $_SESSION['riad'][1] ?></a></p>
                             <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/1.jpg"> <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/1.jpg" alt=""> </a> </div>
+                                <!-- <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/1.jpg"> <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/1.jpg" alt=""> </a> </div>
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/2.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/2.jpg" alt=""> </a> </div>
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/3.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/3.jpg" alt=""> </a> </div>
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/4.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/4.jpg" alt=""> </a> </div>
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/5.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/5.jpg" alt=""> </a> </div>
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/6.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/6.jpg" alt=""> </a> </div>
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/7.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/7.jpg" alt=""> </a> </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/8.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/8.jpg" alt=""> </a> </div>                                
+                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/8.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/8.jpg" alt=""> </a> </div>                                 -->
                             </div>
                         </div>
                     </div>
@@ -525,6 +525,7 @@
     </div>
 </section>
 <!-- Jquery Core Js --> 
+<script src="js/profile.js"></script>
 <script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
 <script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
 
