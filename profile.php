@@ -258,7 +258,7 @@
 </div>
 
 <!-- Left Sidebar -->
-<?php $path=$_SERVER["DOCUMENT_ROOT"]."/Screenday/pages/"; include($path."menugauche.html");?>
+<?php $path=$_SERVER["DOCUMENT_ROOT"]."/ScreenDayPro2/pages/"; include($path."menugauche.html");?>
 
     <!-- Right Sidebar -->
 <aside id="rightsidebar" class="right-sidebar">
