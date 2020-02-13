@@ -1,5 +1,3 @@
-<?php if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayPro2/sign-in.html");} ?>
-
 <!doctype html>
 <html class="no-js " lang="en">
 <head>
