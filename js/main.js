@@ -10,7 +10,7 @@ $("#singin").click(function(){
         alert("0");
         })
 })
-if(window.location.pathname=="/ScreenDay/index.php"){
+if(window.location.pathname=="/ScreenDayPro2/index.php"){
     $.get("php/riad.php",{op:1},function(data){
         var tab=JSON.parse(data);
         $("#nbrres").html(tab[0]["COUNT(Id_reservation)"]+" <small class='info'>ce mois </small>");

@@ -1,6 +1,6 @@
 ﻿<?php 
 session_start();
-if(!isset($_SESSION["riad"])){header("Location: http://localhost/screenday/sign-in.html");} ?> 
+if(!isset($_SESSION["riad"])){header("Location: http://localhost/ScreenDayPro2/sign-in.html");} ?> 
 <!doctype html>
 <html class="no-js " lang="en">
 <head>
@@ -22,7 +22,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost/screenday/sign-
 
 <body class="theme-blush">
 <!-- <?php session_start(); ?> -->
-<?php $path=$_SERVER["DOCUMENT_ROOT"]."/Screenday/pages/"; include($path."menugauche.html");?>
+<?php $path=$_SERVER["DOCUMENT_ROOT"]."/ScreenDayPro2/pages/"; include($path."menugauche.html");?>
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">
