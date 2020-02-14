@@ -48,5 +48,10 @@ if($op==1){
     $tab=array($req->fetch_assoc(),$req2->fetch_assoc(),$req3->fetch_assoc(),$req4->fetch_assoc(),$req5->fetch_assoc(),$req6->fetch_assoc(),$req7->fetch_assoc());
     echo json_encode($tab);
 }
-
+if($op==2){
+    $req1=mysqli_query($con,"select Nom_responsable,date(date_debut),date(date_fin) from reservation r join demande d on r.Num_Demande=d.Num_Demande where Num_Riad=1 and MONTH(Date_reservation) = MONTH(CURRENT_DATE()) and YEAR(Date_reservation) = YEAR(CURDATE())");
+    while($row=$req1->fetch_array())
+    $tab[]=array("title"=>$row[0],"start"=>$row[1],"end"=>$row[2]);
+    echo json_encode($tab);
+}
 ?>

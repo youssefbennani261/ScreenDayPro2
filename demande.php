@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 session_start();
 if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayPro2/sign-in.html");} ?> 
 <!doctype html>
@@ -419,10 +419,10 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
     <div class="block-header">
         <div class="row">
             <div class="col-lg-7 col-md-6 col-sm-12">
-                <h2>Dashboard</h2>
+                <h2>Demandes</h2>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php"><i class="zmdi zmdi-home"></i> Home</a></li>
-                    <li class="breadcrumb-item active">Dashboard</li>
+                    <li class="breadcrumb-item active">Demandes</li>
                 </ul>
                 <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
             </div>
@@ -432,70 +432,27 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
         </div>
     </div>
     <div class="container-fluid">
-        <div class="row clearfix">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="card widget_2 big_icon traffic">
-                    <div class="body">
-                        <h6>Nombre de <br> reservation</h6>
-                        <h2 id="nbrres"><small class="info">ce mois </small></h2>
-                        <small id="resstat" >2% higher than last month</small>
-                        <div class="progress">
-                            <div id="progress_res id" class="progress-bar l-amber" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;"></div>
+    <div class="table-responsive social_media_table">
+                            <table class="table table-hover c_table">
+                                <thead>
+                                    <tr>
+                                        <th>Agence</th>
+                                        <th>Responsable</th>
+                                        <th>Date Debut</th>
+                                        <th>Date Fin</th>
+                                        <th>Personnes</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="card widget_2 big_icon sales">
-                    <div class="body">
-                        <h6>Chiffre<br> d"Affaire</h6>
-                        <h2 id="ca"><small class="info">ce mois</small></h2>
-                        <small id="castat">6% higher than last month</small>
-                        <div class="progress" >
-                            <div  id="progress_ca" class="progress-bar l-blue" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100" style="width: 38%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="card widget_2 big_icon email">
-                    <div class="body">
-                        <h6>Nombre de <br>chambres qui <br> pleine</h6>
-                        <h2 id="nbr0">39 <small class="info">of 100</small></h2>
-                        <small>Total chambre qui pleine</small>
-                        <div class="progress" id="nbr01">
-                            <div class="progress-bar l-purple" role="progressbar" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100" style="width: 39%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="card widget_2 big_icon domains">
-                    <div class="body">
-                        <h6>Nombre de <br>chambres qui<br> ne pas pleine </h6>
-                        <h2 id="nbr1" >8 <small class="info">of 10</small></h2>
-                        <small>Total chambre qui ne pas pleine</small>
-                        <div class="progress" id="nbr11">
-                            <div class="progress-bar l-green" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="body">
-                <h3>Statut des chambres</h3>
-                    <div id="calendar">
-                        
-                    </div>
-                </div>
-                    </div>
-        </div>
-
 
     </div>
 </section>
 <!-- Add New Event popup -->
-<div class="modal fade" id="addNewEvent" aria-hidden="true" style="display: none;">
+<!-- <div class="modal fade" id="addNewEvent" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -528,9 +485,9 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Add Direct Event popup -->
-<div class="modal fade" id="addDirectEvent" tabindex="-1" role="dialog">
+<!-- <div class="modal fade" id="addDirectEvent" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -564,9 +521,9 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Event Edit Modal popup -->
-<div class="modal fade" id="eventEditModal" tabindex="-1" role="dialog">
+<!-- <div class="modal fade" id="eventEditModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -601,7 +558,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- Jquery Core Js --> 
 <script src="js/jquery.min.js"></script>
