@@ -1,6 +1,3 @@
-<?php 
-session_start();
-if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayPro2/sign-in.html");} ?> 
 <!doctype html>
 <html class="no-js " lang="en">
 <head>
@@ -9,18 +6,16 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
 
-<title>Profile</title>
+<title>Modification Profile </title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <!-- Favicon-->
 <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-<!-- Light Gallery Plugin Css -->
-<link rel="stylesheet" href="assets/plugins/light-gallery/css/lightgallery.css">
-<link rel="stylesheet" href="assets/plugins/fullcalendar/fullcalendar.min.css">
 <!-- Custom Css -->
 <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
 
 <body class="theme-blush">
+
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">
@@ -260,9 +255,181 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
 </div>
 
 <!-- Left Sidebar -->
-<?php $path=$_SERVER["DOCUMENT_ROOT"]."/ScreenDayPro2/pages/"; include($path."menugauche.html");?>
+<aside id="leftsidebar" class="sidebar">
+    <div class="navbar-brand">
+        <button class="btn-menu ls-toggle-btn" type="button"><i class="zmdi zmdi-menu"></i></button>
+        <a href="index.html"><img src="assets/images/logo.svg" width="25" alt="Aero"><span class="m-l-10">Aero</span></a>
+    </div>
+    <div class="menu">
+        <ul class="list">
+            <li>
+                <div class="user-info">
+                    <a class="image" href="profile.html"><img src="assets/images/profile_av.jpg" alt="User"></a>
+                    <div class="detail">
+                        <h4>Michael</h4>
+                        <small>Super Admin</small>                        
+                    </div>
+                </div>
+            </li>
+            <li><a href="index.html"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
+            <li><a href="my-profile.html"><i class="zmdi zmdi-account"></i><span>Our Profile</span></a></li>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>App</span></a>
+                <ul class="ml-menu">
+                    <li><a href="mail-inbox.html">Email</a></li>
+                    <li><a href="chat.html">Chat Apps</a></li>
+                    <li><a href="events.html">Calendar</a></li>
+                    <li><a href="contact.html">Contact</a></li>                    
+                </ul>
+            </li>
+            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Projects</span></a>
+                <ul class="ml-menu">
+                    <li><a href="project-list.html">Projects List</a></li>
+                    <li><a href="taskboard.html">Taskboard</a></li>
+                    <li><a href="ticket-list.html">Ticket List</a></li>
+                    <li><a href="ticket-detail.html">Ticket Detail</a></li>
+                </ul>
+            </li>
+            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-folder"></i><span>File Manager</span></a>
+                <ul class="ml-menu">
+                    <li><a href="file-dashboard.html">All File</a></li>
+                    <li><a href="file-documents.html">Documents</a></li>
+                    <li><a href="file-images.html">Images</a></li>
+                    <li><a href="file-media.html">Media</a></li>
+                </ul>
+            </li>
+            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-blogger"></i><span>Blog</span></a>
+                <ul class="ml-menu">
+                    <li><a href="blog-dashboard.html">Dashboard</a></li>
+                    <li><a href="blog-post.html">Blog Post</a></li>
+                    <li><a href="blog-list.html">List View</a></li>
+                    <li><a href="blog-grid.html">Grid View</a></li>
+                    <li><a href="blog-details.html">Blog Details</a></li>
+                </ul>
+            </li>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-shopping-cart"></i><span>Ecommerce</span></a>
+                <ul class="ml-menu">
+                    <li><a href="ec-dashboard.html">Dashboard</a></li>
+                    <li><a href="ec-product.html">Product</a></li>
+                    <li><a href="ec-product-List.html">Product List</a></li>
+                    <li><a href="ec-product-detail.html">Product detail</a></li>
+                </ul>
+            </li>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-swap-alt"></i><span>Components</span></a>
+                <ul class="ml-menu">
+                    <li><a href="ui_kit.html">Aero UI KIT</a></li>                    
+                    <li><a href="alerts.html">Alerts</a></li>                    
+                    <li><a href="collapse.html">Collapse</a></li>
+                    <li><a href="colors.html">Colors</a></li>
+                    <li><a href="dialogs.html">Dialogs</a></li>                    
+                    <li><a href="list-group.html">List Group</a></li>
+                    <li><a href="media-object.html">Media Object</a></li>
+                    <li><a href="modals.html">Modals</a></li>
+                    <li><a href="notifications.html">Notifications</a></li>                    
+                    <li><a href="progressbars.html">Progress Bars</a></li>
+                    <li><a href="range-sliders.html">Range Sliders</a></li>
+                    <li><a href="sortable-nestable.html">Sortable & Nestable</a></li>
+                    <li><a href="tabs.html">Tabs</a></li>
+                    <li><a href="waves.html">Waves</a></li>
+                </ul>
+            </li>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-flower"></i><span>Font Icons</span></a>
+                <ul class="ml-menu">
+                    <li><a href="icons.html">Material Icons</a></li>
+                    <li><a href="icons-themify.html">Themify Icons</a></li>
+                    <li><a href="icons-weather.html">Weather Icons</a></li>
+                </ul>
+            </li>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Forms</span></a>
+                <ul class="ml-menu">
+                    <li><a href="basic-form-elements.html">Basic Form</a></li>
+                    <li><a href="advanced-form-elements.html">Advanced Form</a></li>
+                    <li><a href="form-examples.html">Form Examples</a></li>
+                    <li><a href="form-validation.html">Form Validation</a></li>
+                    <li><a href="form-wizard.html">Form Wizard</a></li>
+                    <li><a href="form-editors.html">Editors</a></li>
+                    <li><a href="form-upload.html">File Upload</a></li>
+                    <li><a href="form-summernote.html">Summernote</a></li>
+                </ul>
+            </li>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-grid"></i><span>Tables</span></a>
+                <ul class="ml-menu">
+                    <li><a href="normal-tables.html">Normal Tables</a></li>
+                    <li><a href="jquery-datatable.html">Jquery Datatables</a></li>
+                    <li><a href="editable-table.html">Editable Tables</a></li>
+                    <li><a href="footable.html">Foo Tables</a></li>
+                    <li><a href="table-color.html">Tables Color</a></li>
+                </ul>
+            </li>            
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-chart"></i><span>Charts</span></a>
+                <ul class="ml-menu">
+                    <li><a href="echarts.html">E Chart</a></li>
+                    <li><a href="c3.html">C3 Chart</a></li>
+                    <li><a href="morris.html">Morris</a></li>
+                    <li><a href="flot.html">Flot</a></li>
+                    <li><a href="chartjs.html">ChartJS</a></li>
+                    <li><a href="sparkline.html">Sparkline</a></li>
+                    <li><a href="jquery-knob.html">Jquery Knob</a></li>
+                </ul>
+            </li>            
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-delicious"></i><span>Widgets</span></a>
+                <ul class="ml-menu">
+                    <li><a href="widgets-app.html">Apps Widgets</a></li>
+                    <li><a href="widgets-data.html">Data Widgets</a></li>
+                </ul>
+            </li>
+            <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-lock"></i><span>Authentication</span></a>
+                <ul class="ml-menu">
+                    <li><a href="sign-in.html">Sign In</a></li>
+                    <li><a href="sign-up.html">Sign Up</a></li>
+                    <li><a href="forgot-password.html">Forgot Password</a></li>
+                    <li><a href="404.html">Page 404</a></li>
+                    <li><a href="500.html">Page 500</a></li>
+                    <li><a href="page-offline.html">Page Offline</a></li>
+                    <li><a href="locked.html">Locked Screen</a></li>
+                </ul>
+            </li>
+            <li  class="open_top active open"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-copy"></i><span>Sample Pages</span></a>
+                <ul class="ml-menu">
+                    <li><a href="blank.html">Blank Page</a></li>
+                    <li><a href="image-gallery.html">Image Gallery</a></li>
+                    <li class="active"><a href="profile.html">Profile</a></li>
+                    <li><a href="timeline.html">Timeline</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="invoices.html">Invoices</a></li>
+                    <li><a href="invoices-list.html">Invoices List</a></li>
+                    <li><a href="search-results.html">Search Results</a></li>
+                </ul>
+            </li>
+            <li class="open_top"><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-map"></i><span>Maps</span></a>
+                <ul class="ml-menu">
+                    <li><a href="google.html">Google Map</a></li>
+                    <li><a href="yandex.html">YandexMap</a></li>
+                    <li><a href="jvectormap.html">jVectorMap</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="progress-container progress-primary m-t-10">
+                    <span class="progress-badge">Traffic this Month</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="width: 67%;">
+                            <span class="progress-value">67%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-container progress-info">
+                    <span class="progress-badge">Server Load</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%;">
+                            <span class="progress-value">86%</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</aside>
 
-    <!-- Right Sidebar -->
+<!-- Right Sidebar -->
 <aside id="rightsidebar" class="right-sidebar">
     <ul class="nav nav-tabs sm">
         <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#setting"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
@@ -414,110 +581,104 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>Profile</h2>
+                    <h2>Profile Edit</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.php"><i class="zmdi zmdi-home"></i> Riad </a></li>
+                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
                         <li class="breadcrumb-item">Pages</li>
-                        <li class="breadcrumb-item active">Profile</li>
+                        <li class="breadcrumb-item">Profile</li>
+                        <li class="breadcrumb-item active">Edit</li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-12">                
                     <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
-                    <a href="profile-edit.php" class="btn btn-info btn-icon float-right"><i class="zmdi zmdi-edit"></i></a>
+                    <a href="profile.php" class="btn btn-info btn-icon float-right"><i class="zmdi zmdi-check"></i></a>
                 </div>
             </div>
         </div> 
         <div class="container-fluid">
             <div class="row clearfix">
-                <div class="col-lg-4 col-md-12">
-                    <div class="card mcard_3">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong>Security</strong> Settings</h2>
+                        </div>
                         <div class="body">
-                            <a href="profile.php"><img src=<?php echo $_SESSION['riad'][2]?> class="rounded-circle shadow " alt="profile-image"></a>
-                            <h4 class="m-t-10"><?php echo $_SESSION['riad'][1]?></h4>                            
                             <div class="row">
+                                <div class="col-lg-4 col-md-12">
+                                    <div class="form-group">
+                                        <input type="text"id="user" class="form-control" placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12">
+                                    <div class="form-group">
+                                        <input type="password" id="pw" class="form-control" placeholder="Current Password">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12">
+                                    <div class="form-group">
+                                        <input type="password"  id="pwafter" class="form-control" placeholder="New Password">
+                                    </div>
+                                </div>
                                 <div class="col-12">
-                                    <!-- <ul class="social-links list-unstyled">
-                                        <li><a title="facebook" href="javascript:void(0);"><i class="zmdi zmdi-facebook"></i></a></li>
-                                        <li><a title="twitter" href="javascript:void(0);"><i class="zmdi zmdi-twitter"></i></a></li>
-                                        <li><a title="instagram" href="javascript:void(0);"><i class="zmdi zmdi-instagram"></i></a></li>
-                                    </ul> -->
-                                    <p class="text-muted"><?php echo $_SESSION['riad'][3]?></p>
-                                </div>
-                                <!-- <div class="col-4">                                    
-                                    <small>Following</small>
-                                    <h5>852</h5>
-                                </div>
-                                <div class="col-4">                                    
-                                    <small>Followers</small>
-                                    <h5>13k</h5>
-                                </div>
-                                <div class="col-4">                                    
-                                    <small>Post</small>
-                                    <h5>234</h5>
-                                </div>                             -->
-                            </div>
+                                    <button class="btn btn-info" onclick="verification()">Save Changes</button>
+                                </div>                                
+                            </div>                              
                         </div>
                     </div>
                     <div class="card">
-                        <div class="body">
-                            <small class="text-muted">Email address: </small>
-                            <p><?php echo $_SESSION['riad'][5]?></p>
-                            <hr>
-                            <small class="text-muted">Phone: </small>
-                            <p><?php echo $_SESSION['riad'][4]?></p>
-                            <hr>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <div>Qualité Service</div>
-                                    <div class="progress m-b-20">
-                                        <div class="progress-bar l-blue " role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%"> <span class="sr-only">62% Complete</span> </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>Wordpress</div>
-                                    <div class="progress m-b-20">
-                                        <div class="progress-bar l-green " role="progressbar" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100" style="width: 56%"> <span class="sr-only">87% Complete</span> </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>HTML 5</div>
-                                    <div class="progress m-b-20">
-                                        <div class="progress-bar l-amber" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%"> <span class="sr-only">32% Complete</span> </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>Angular</div>
-                                    <div class="progress m-b-20">
-                                        <div class="progress-bar l-blush" role="progressbar" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100" style="width: 43%"> <span class="sr-only">56% Complete</span> </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <span><?php echo $_SESSION['riad'][9] ?></span>
-                        </div>
-                    </div>                    
-                </div>
-                <div class="col-lg-8 col-md-12">
-                    <!-- <div class="card">
-                        <div class="body">
-                            <div id="calendar"></div>
-                        </div>
-                    </div> -->
-                    <div class="card">
                         <div class="header">
-                            <h2><strong> Riad </strong> Gallery</h2>
+                            <h2><strong>Account</strong> Settings</h2>
                         </div>
                         <div class="body">
-                            <p>Tous les Photos <a href="profile.php" target="_blank"><?php  echo $_SESSION['riad'][1] ?></a></p>
-                            <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
-                                <!-- <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/1.jpg"> <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/1.jpg" alt=""> </a> </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/2.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/2.jpg" alt=""> </a> </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/3.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/3.jpg" alt=""> </a> </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/4.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/4.jpg" alt=""> </a> </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/5.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/5.jpg" alt=""> </a> </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/6.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/6.jpg" alt=""> </a> </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/7.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/7.jpg" alt=""> </a> </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/8.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/8.jpg" alt=""> </a> </div>                                 -->
+                            <div class="row clearfix">
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="First Name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Last Name">
+                                    </div>
+                                </div>                                    
+                                <div class="col-lg-4 col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="City">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="E-mail">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Country">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea rows="4" class="form-control no-resize" placeholder="Address Line 1"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="checkbox">
+                                        <input id="procheck1" type="checkbox" checked>
+                                        <label for="procheck1">Profile Visibility For Everyone</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <input id="procheck2" type="checkbox">
+                                        <label for="procheck2">New task notifications</label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <input id="procheck3" type="checkbox">
+                                        <label for="procheck3">New friend request notifications</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <button class="btn btn-primary">Save Changes</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -527,15 +688,9 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
     </div>
 </section>
 <!-- Jquery Core Js --> 
-<script src="js/profile.js"></script>
 <script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
 <script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
-
-<script src="assets/plugins/light-gallery/js/lightgallery-all.min.js"></script> <!-- Light Gallery Plugin Js --> 
-<script src="assets/bundles/fullcalendarscripts.bundle.js"></script><!--/ calender javascripts --> 
-
+ <script src="js/edit-profile.js"></script> <!-- modification profile -->
 <script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
-<script src="assets/js/pages/medias/image-gallery.js"></script>
-<script src="assets/js/pages/calendar/calendar.js"></script>
 </body>
 </html>
