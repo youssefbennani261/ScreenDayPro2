@@ -11,4 +11,5 @@
       $data=json_encode($tab);
       echo $data;
   }
+  mysqli_close($con);
 ?>
