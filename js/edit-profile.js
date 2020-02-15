@@ -2,11 +2,13 @@ function verification(){
   var xhr=new XMLHttpRequest();
   xhr.onreadystatechange=function(){
    if(this.status==200 && this.readyState==4){
- var cas =this.response;
-   if(cas==0)
-    alert("Username or Password Incorrect");
-    else
+ var cas =this.responseText;
+   if(cas==0){
+   document.getElementById("user").style.borderBottom=' 1px red solid';
+   document.getElementById("pw").style.borderBottom=' 1px red solid';}
+    else if(cas==1)
      alert("Password Modifier avec Succes");
+     location.reload();
    }
   }
   var op=1;

@@ -54,4 +54,5 @@ if($op==2){
     $tab[]=array("title"=>$row[0],"start"=>$row[1],"end"=>$row[2]);
     echo json_encode($tab);
 }
+mysqli_close($con);
 ?>
