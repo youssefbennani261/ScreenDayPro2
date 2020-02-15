@@ -1,3 +1,4 @@
+
 $("#singin").click(function(){
 
     $.post("php/login.php",{login:$("#email").val(),pwd:$("#pwd").val()},function(data){
@@ -48,3 +49,22 @@ if(thismonth<lastmonth){
 return output;
 }
 
+if(window.location.pathname=="/ScreenDayPro2/demande.php"){
+
+    var demandes;
+    $.get("php/riad.php",{op:3},function(data){
+        demandes=JSON.parse(data);
+        for(i=0;i<demandes.length;i++){
+            $("#tab_demandes").append("<tr><td style='display: table-cell'>"+demandes[i].nomagg+"</td><td style='display: table-cell'>"+demandes[i].respo+"</td><td style='display: table-cell'>"+demandes[i].datedeb+"</td><td style='display: table-cell'>"+demandes[i].datefin+"</td><td style='display: table-cell'>"+demandes[i].detail+"</td><td><button class='btn btn-success' data-toggle='modal' data-target='#defaultModal' id='"+demandes[i].numdemande+"'>Accepter</button></td><td><button class='btn btn-danger'>Refuser</button></td></tr>");
+            $("#tab_demandes").on('click','#'+i,function(){
+                alert(i);
+            })
+        }
+    })
+
+
+}
+// var str=;
+// function getclients(detail){
+//     for(i=0;i<deta)
+// }

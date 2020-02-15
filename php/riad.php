@@ -54,4 +54,18 @@ if($op==2){
     $tab[]=array("title"=>$row[0],"start"=>$row[1],"end"=>$row[2]);
     echo json_encode($tab);
 }
+if($op==3){
+    $req=mysqli_query($con,"select Num_Demande,nom,Nom_responsable,Date_debut,Date_fin,Detail from demande d
+    join agence a on d.Num_agence=a.Num_agence
+    where Num_riad='{$_SESSION["riad"][0]}'");
+    while($row=$req->fetch_array())
+    $tab[]=array("numdemande"=>$row[0],"nomagg"=>$row[1],"respo"=>$row[2],"datedeb"=>$row[3],"datefin"=>$row[4],"detail"=>(substr_count( $row[5], "\n" ))==0?1:substr_count( $row[5], "\n" ));
+    echo json_encode($tab);
+}
+if($op==4){
+    $req=mysqli_query($con,"select num_chambre,Nbr_Adulte+nbr_enfent from chambre where Cas_reservation=0 and Num_riad='{$_SESSION["riad"][0]}'");
+    while($row=$req->fetch_array())
+    $tab[]=array("num_chambre"=>$row[0],"nbrpers"=>$row[1]);
+    echo json_encode($tab);
+}
 ?>
