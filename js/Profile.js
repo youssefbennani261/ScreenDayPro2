@@ -8,6 +8,8 @@ if(window.location.pathname=="/ScreenDayPro2/profile.php"){
      for(i=0;i<tab.length;i++)
       {
      document.getElementById("aniimated-thumbnials").innerHTML+="<div class='col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30'> <a href='"+tab[i].src+"'> <img class='img-fluid img-thumbnail' src='"+tab[i].src+"' alt=''> </a> </div>";
+     if(i==tab.length-1)
+     document.getElementById("aniimated-thumbnials").innerHTML+="<input type='file' class='dropify' id='dropify-event' ></input>";
          
                             
       }
@@ -16,7 +18,8 @@ if(window.location.pathname=="/ScreenDayPro2/profile.php"){
    }
 
    }
+   
 xhr.open("GET","php/images.php",true)
 xhr.send();
-   
+
 }

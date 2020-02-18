@@ -13,6 +13,8 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <!-- Favicon-->
 <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/plugins/dropify/css/dropify.min.css">
+
 <!-- Light Gallery Plugin Css -->
 <link rel="stylesheet" href="assets/plugins/light-gallery/css/lightgallery.css">
 <link rel="stylesheet" href="assets/plugins/fullcalendar/fullcalendar.min.css">
@@ -313,6 +315,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
     </div>
 </section>
 <!-- Jquery Core Js --> 
+<script src="js/jquery.min.js"></script>
 <script src="js/profile.js"></script>
 <script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
 <script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
@@ -323,5 +326,8 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
 <script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
 <script src="assets/js/pages/medias/image-gallery.js"></script>
 <script src="assets/js/pages/calendar/calendar.js"></script>
+<script src="assets/plugins/dropify/js/dropify.min.js"></script>
+<script src="assets/js/pages/forms/dropify.js"></script>
+
 </body>
 </html>

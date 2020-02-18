@@ -1,6 +1,7 @@
 var reservation;
 $.get("php/riad.php",{op:2},function(data){
     reservation=JSON.parse(data);
+    console.log(reservation);
     $.each(reservation, function(index, event){
         $('#calendar').fullCalendar('renderEvent', event);
     });
