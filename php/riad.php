@@ -60,7 +60,7 @@ if($op==2){
 if($op==3){
     $req=mysqli_query($con,"select Num_Demande,nom,Nom_responsable,Date_debut,Date_fin,Detail,a.Num_agence from demande d
     join agence a on d.Num_agence=a.Num_agence
-    where Num_riad='{$_SESSION["riad"][0]}'");
+    where Num_riad='{$_SESSION["riad"][0]}' and vérifié=0");
     while($row=$req->fetch_array())
     $tab[]=array("numdemande"=>$row[0],"nomagg"=>$row[1],"respo"=>$row[2],"datedeb"=>$row[3],"datefin"=>$row[4],"detail"=>$row[5],"Num_agence"=>$row[6]);
     echo json_encode($tab);
@@ -90,4 +90,5 @@ if($op==5){
 if($op==6){
     $req=mysqli_query($con,"delete from demande where Num_Demande ='".$demade."'");
 }
+mysqli_close($con);
 ?>
