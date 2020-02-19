@@ -20,7 +20,7 @@ if(window.location.pathname=="/ScreenDayPro2/profile.php"){
 xhr.open("GET","php/images.php",true)
 xhr.send();
 $(document).on('click', '#sendfile', function(){
-   var name = document.getElementById("file").files[0].name;
+   var name = document.getElementById("fileup").files[0].name;
    var form_data = new FormData();
    var ext = name.split('.').pop().toLowerCase();
    if(jQuery.inArray(ext, ['gif','png','jpg','jpeg']) == -1) 
@@ -28,8 +28,8 @@ $(document).on('click', '#sendfile', function(){
     alert("Format d'image Invalide");
    }
    var oFReader = new FileReader();
-   oFReader.readAsDataURL(document.getElementById("file").files[0]);
-   var f = document.getElementById("file").files[0];
+   oFReader.readAsDataURL(document.getElementById("fileup").files[0]);
+   var f = document.getElementById("fileup").files[0];
    var fsize = f.size||f.fileSize;
    if(fsize > 2000000)
    {
@@ -37,7 +37,7 @@ $(document).on('click', '#sendfile', function(){
    }
    else
    {
-    form_data.append("file", document.getElementById('file').files[0]);
+    form_data.append("file", document.getElementById('fileup').files[0]);
     $.ajax({
      url:"./php/upload.php",
      method:"POST",
