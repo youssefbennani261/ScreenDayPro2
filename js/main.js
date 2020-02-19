@@ -1,4 +1,3 @@
-
 $("#singin").click(function(){
 
     $.post("php/login.php",{login:$("#email").val(),pwd:$("#pwd").val()},function(data){
@@ -52,16 +51,83 @@ return output;
 if(window.location.pathname=="/ScreenDayPro2/demande.php"){
 
     var demandes;
+    
     $.get("php/riad.php",{op:3},function(data){
         demandes=JSON.parse(data);
-        for(i=0;i<demandes.length;i++){
-            $("#tab_demandes").append("<tr><td style='display: table-cell'>"+demandes[i].nomagg+"</td><td style='display: table-cell'>"+demandes[i].respo+"</td><td style='display: table-cell'>"+demandes[i].datedeb+"</td><td style='display: table-cell'>"+demandes[i].datefin+"</td><td style='display: table-cell'>"+demandes[i].detail+"</td><td><button class='btn btn-success' data-toggle='modal' data-target='#defaultModal' id='"+demandes[i].numdemande+"'>Accepter</button></td><td><button class='btn btn-danger'>Refuser</button></td></tr>");
-            $("#tab_demandes").on('click','#'+i,function(){
-                alert(i);
-            })
+        for(let i=0;i<demandes.length;i++){
+            $("#tab_demandes").append("<tr><td style='display: table-cell'>"+demandes[i].nomagg+"</td><td style='display: table-cell'>"+demandes[i].respo+"</td><td style='display: table-cell'>"+demandes[i].datedeb+"</td><td style='display: table-cell'>"+demandes[i].datefin+"</td><td style='display: table-cell'>"+JSON.parse(demandes[i].detail).length+"</td><td><button class='btn btn-success accepte' data-toggle='modal' data-target='#defaultModal' id='"+i+"'>Accepter</button></td><td><button class='btn btn-danger refuse' id=d"+demandes[i].numdemande+" >Refuser</button></td></tr>");
+
         }
     })
+    
+    $("#tab_demandes").on('click','.accepte',function(){
+        var reservation=[];
+        var chambres;
+        $.get("php/riad.php",{op:4},(data)=>{
+             chambres=JSON.parse(data);
+             let ind =$(this).attr('id');
+             let pers=JSON.parse(demandes[ind].detail);
+             $(".modal-body").empty();
+             for(let i=0;i<pers.length;i++){
+                 if(i==0)
+                 $(".modal-body").append("<input type='hidden' id='iddem' value='"+demandes[ind].numdemande+"'></input>"+"<input type='hidden' id='numag' value='"+demandes[ind].Num_agence+"'></input>"+" veuillez choisir les Chambres pour <br> "+pers[i].client+"("+pers[i].type+")"+" <select class='chambres form-control'></select><a class='float-right setchambre'></a><br>Prix<br><input type='text' class='form-control setprix' placeholder='Tappez le prix de cette chambre'><br>");
+                 else
+                 $(".modal-body").append(pers[i].client+"("+pers[i].type+")"+" <select class='chambres form-control'></select><br>Prix<br><input type='text' class='form-control setprix' placeholder='Tappez le prix de cette chambre'><br>");
+             }
+             for(let i=0;i<chambres.length;i++){
+             $(".chambres").append(new Option("chambre "+chambres[i].num_chambre+" ("+chambres[i].nbradulte+" Adulte "+chambres[i].nbr_enfent+" bebe "+" )",chambres[i].num_chambre));
+             }
+        })
+        $(".modal-body").on('change','.chambres',(event)=>{
+            $('.setchambre').html("Affecter chambre "+chambres[event.originalEvent.target.selectedIndex].num_chambre+" pour tous");
+        })
+        $(".modal-body").on('click','.setchambre',()=>{
+            $(".chambres").prop('selectedIndex',$(".chambres").prop('selectedIndex'));
+        })
+    });
+        $("#save").click(function(){
+            var prix=JSON.stringify(getrepeated());
+            var iddemande=parseInt($("#iddem").val());
+            var num_age=parseInt($("#numag").val());
+            $.get("php/riad.php",{op:5,prix:prix,demade:iddemande,num_agence:num_age},(data)=>{
+                console.log(data);
+            })
 
+        });
+        $("#tab_demandes").on('click','.refuse',function(e){
+            console.log(e);
+            // swal("Avertissement", "Voulez vous supprimer cette demande ?","warning");
+            swal("Avertissement", "Voulez vous supprimer cette demande ?","warning",{
+                buttons: {
+                    confirm: true,
+                  cancel: true,
+                  
+                },
+              }).then(function(isConfirm) {
+                if (isConfirm) {
+                  swal({
+                    title: 'supprimé',
+                    text: 'La demande est supp  rimé!',
+                    icon: 'success'
+                  }).then(function() {
+                    $.get("php/riad.php",{op:6,demade:parseInt(e.currentTarget.id.substr(1,1))},()=>{
+                        
+                    })
+                  });
+                } 
+        })})
 
+    }
+function getrepeated(){
+    var data=[];
+    var occurs=[];
+    for(let i=0;i<$(".setprix").length;i++){
+           data.push({"id_chambre":parseInt($(".chambres")[i].value),"prix":parseInt($(".setprix")[i].value)});
+        //    "id_demande":parseInt($("#iddem").val()),
+    }
+    // $.each(data, function(i, el){
+    //     if($.inArray(el.prix, occurs) === -1) occurs.push(parseInt(el));
+    // });
+    return data;
 }
 

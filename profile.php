@@ -13,6 +13,8 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <!-- Favicon-->
 <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/plugins/dropify/css/dropify.min.css">
+
 <!-- Light Gallery Plugin Css -->
 <link rel="stylesheet" href="assets/plugins/light-gallery/css/lightgallery.css">
 <link rel="stylesheet" href="assets/plugins/fullcalendar/fullcalendar.min.css">
@@ -305,6 +307,8 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/7.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/7.jpg" alt=""> </a> </div>
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/8.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/8.jpg" alt=""> </a> </div>                                 -->
                             </div>
+                            <input type='file' class='dropify' id='file' ></input><br><br>
+                            <button type="button" class='btn btn-primary float-right' id='sendfile'>Upload</button>
                         </div>
                     </div>
                 </div>
@@ -313,6 +317,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
     </div>
 </section>
 <!-- Jquery Core Js --> 
+<script src="js/jquery.min.js"></script>
 <script src="js/profile.js"></script>
 <script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
 <script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
@@ -323,5 +328,8 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
 <script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
 <script src="assets/js/pages/medias/image-gallery.js"></script>
 <script src="assets/js/pages/calendar/calendar.js"></script>
+<script src="assets/plugins/dropify/js/dropify.min.js"></script>
+<script src="assets/js/pages/forms/dropify.js"></script>
+
 </body>
 </html>

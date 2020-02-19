@@ -12,6 +12,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
     <title> Home</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/plugins/sweetalert/sweetalert.css"/>
     <link rel="stylesheet" href="assets/plugins/fullcalendar/fullcalendar.min.css">
     <link rel="stylesheet" href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css" />
     <link rel="stylesheet" href="assets/plugins/charts-c3/plugin.css" />
@@ -107,13 +108,11 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                 </div>
                 
                 <div class="modal-body">
-                veuillez choisir les Chambres pour
-                    <select id="chambres" class="form-control">
+               
 
-                    </select>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-round waves-effect">SAVE CHANGES</button>
+                    <button type="button" class="btn btn-default btn-round waves-effect" id="save">SAVE CHANGES</button>
                     <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
                 </div>
             </div>
@@ -231,6 +230,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
     <!-- Jquery Core Js -->
     <script src="js/jquery.min.js"></script>
     <script src="assets/bundles/libscripts.bundle.js"></script>
+    <script src="assets/plugins/sweetalert/sweetalert.min.js"></script> <!-- SweetAlert Plugin Js --> 
     <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
     <script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
 
