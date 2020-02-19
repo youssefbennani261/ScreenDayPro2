@@ -1,4 +1,4 @@
-function verification(){
+function changerPassword(){
   var xhr=new XMLHttpRequest();
   xhr.onreadystatechange=function(){
    if(this.status==200 && this.readyState==4){
@@ -6,9 +6,11 @@ function verification(){
    if(cas==0){
    document.getElementById("user").style.borderBottom=' 1px red solid';
    document.getElementById("pw").style.borderBottom=' 1px red solid';}
-    else if(cas==1)
-     alert("Password Modifier avec Succes");
+    else if(cas==1){
+       alert("Password Modifier avec Succes");
      location.reload();
+    }
+    
    }
   }
   var op=1;
@@ -20,3 +22,32 @@ function verification(){
    var data="op="+op+"&user="+user+"&pw="+pw+"&pwafter="+pwafter;
    xhr.send(data);
     }
+
+
+    function changerinfo(){
+      var xhr=new XMLHttpRequest();
+      xhr.onreadystatechange=function(){
+       if(this.status==200 && this.readyState==4){
+     var cas =this.responseText;
+       if(cas==-1){
+      alert("il ñ'y a pas modification ");
+       }
+        if(cas==1){
+           alert("Modification avec Succes ");
+         location.reload();
+        }
+        
+       }
+      }
+      var op=2;
+      var nom=document.getElementById("nomriad").value;
+      var ville=document.getElementById("ville").value;
+      var email=document.getElementById("email").value;
+      var pays=document.getElementById("pays").value;
+      var adresse=document.getElementById("adresse").value;
+      xhr.open("POST","php/edit-profile.php",true);
+      xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+       var data="op="+op+"&nomriad="+nom+"&ville="+ville+"&email="+email+"&pays="+pays+"&adresse="+pays+"&adresse="+adresse;
+       xhr.send(data);
+        }
+

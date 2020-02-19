@@ -220,6 +220,23 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-md-12">
+                <div class="card">
+                        <div class="header">
+                            <h2><strong>Picture</strong> Settings</h2>
+                        </div>
+                        <div class="body">
+                            <form action="php/upload.php"  method="POST" enctype="multipart/form-data">
+                        <input type="file" name="file" id="file"/>
+                            <div class="row">
+                                
+                                <img id="imgprofile" src=<?php echo $_SESSION['riad'][2] ?>   class="rounded-circle shadow " alt="profile-image">                               <div class="col-12">
+                                                                      
+                                </div>
+                                <input class="btn btn-info"  type="submit" name="submit" value="Save Changes " >     
+                              </form>                                
+                            </div>                              
+                        </div>
+                    </div>
                     <div class="card">
                         <div class="header">
                             <h2><strong>Account</strong> Settings</h2>
@@ -229,45 +246,32 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                                 
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Nom Riad">
+                                        <input type="text" class="form-control"  id="nomriad" placeholder="Nom Riad">
                                     </div>
                                 </div>                                    
                                 <div class="col-lg-4 col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Ville">
+                                        <input type="text" class="form-control" id="ville" placeholder="Ville">
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="E-mail">
+                                        <input type="text" class="form-control" id="email" placeholder="E-mail">
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Pays">
+                                        <input type="text" class="form-control" id="pays" placeholder="Pays">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea rows="4" class="form-control no-resize" placeholder="Adresse "></textarea>
+                                        <textarea rows="4" class="form-control no-resize" id="adresse" placeholder="Adresse "></textarea>
                                     </div>
                                 </div>
+                               
                                 <div class="col-md-12">
-                                    <div class="checkbox">
-                                        <input id="procheck1" type="checkbox" checked>
-                                        <label for="procheck1">Profile Visibility For Everyone</label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <input id="procheck2" type="checkbox">
-                                        <label for="procheck2">New task notifications</label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <input id="procheck3" type="checkbox">
-                                        <label for="procheck3">New friend request notifications</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <button class="btn btn-primary">Save Changes</button>
+                                    <button class="btn btn-primary" onclick="changerinfo()">Save Changes</button>
                                 </div>
                             </div>
                         </div>
@@ -294,11 +298,12 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-info" onclick="verification()">Save Changes</button>
+                                    <button class="btn btn-info" onclick="changerPassword()">Save Changes</button>
                                 </div>                                
                             </div>                              
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

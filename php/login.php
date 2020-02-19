@@ -8,6 +8,7 @@ $req=mysqli_query($con,"select * from riad where (Email='".$login."' or Login='"
 if($req->num_rows>0){
 session_start();
 $_SESSION["riad"]=$req->fetch_array();
+//$req2=mysqli_query($con,"select * from riad where (Email='".$login."' or Login='".$login."' )  and Motdepasse='".$pwd1."'");
 echo "1";
 }
 else if ($req->num_rows==0){

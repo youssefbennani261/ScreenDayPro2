@@ -68,4 +68,5 @@ if($op==4){
     $tab[]=array("num_chambre"=>$row[0],"nbrpers"=>$row[1]);
     echo json_encode($tab);
 }
+
 ?>

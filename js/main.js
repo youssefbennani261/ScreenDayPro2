@@ -64,7 +64,4 @@ if(window.location.pathname=="/ScreenDayPro2/demande.php"){
 
 
 }
-// var str=;
-// function getclients(detail){
-//     for(i=0;i<deta)
-// }
+
