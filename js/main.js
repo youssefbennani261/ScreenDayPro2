@@ -70,9 +70,9 @@ if(window.location.pathname=="/ScreenDayPro2/demande.php"){
              $(".modal-body").empty();
              for(let i=0;i<pers.length;i++){
                  if(i==0)
-                 $(".modal-body").append("<input type='hidden' id='iddem' value='"+demandes[ind].numdemande+"'></input>"+"<input type='hidden' id='numag' value='"+demandes[ind].Num_agence+"'></input>"+" veuillez choisir les Chambres pour <br> "+pers[i].client+"("+pers[i].type+")"+" <select class='chambres form-control'></select><a class='float-right setchambre'></a><br>Prix<br><input type='text' class='form-control setprix' placeholder='Tappez le prix de cette chambre'><br>");
+                 $(".modal-body").append("<input type='hidden' id='iddem' value='"+demandes[ind].numdemande+"'></input>"+"<input type='hidden' id='numag' value='"+demandes[ind].Num_agence+"'></input>"+" veuillez choisir les Chambres pour <br> "+pers[i].client+"("+pers[i].type+")"+"<i class='zmdi zmdi-account-circle zmdi-hc-lg'></i>"+" <select class='chambres form-control'></select><a class='float-right setchambre'></a><br>Prix"+"   <i class='zmdi zmdi-money-box zmdi-hc-lg'></i>"+"<br><input type='text' class='form-control setprix' placeholder='Tappez le prix de cette chambre'><br>");
                  else
-                 $(".modal-body").append(pers[i].client+"("+pers[i].type+")"+" <select class='chambres form-control'></select><br>Prix<br><input type='text' class='form-control setprix' placeholder='Tappez le prix de cette chambre'><br>");
+                 $(".modal-body").append(pers[i].client+"("+pers[i].type+")"+"<i class='zmdi zmdi-account-circle zmdi-hc-lg'></i>"+" <select class='chambres form-control'></select><br>Prix"+"   <i class='zmdi zmdi-money-box zmdi-hc-lg'></i>"+"<br><input type='text' class='form-control setprix' placeholder='Tappez le prix de cette chambre'><br>");
              }
              for(let i=0;i<chambres.length;i++){
              $(".chambres").append(new Option("chambre "+chambres[i].num_chambre+" ("+chambres[i].nbradulte+" Adulte "+chambres[i].nbr_enfent+" bebe "+" )",chambres[i].num_chambre));
@@ -92,7 +92,7 @@ if(window.location.pathname=="/ScreenDayPro2/demande.php"){
             $.get("php/riad.php",{op:5,prix:prix,demade:iddemande,num_agence:num_age},(data)=>{
                 console.log(data);
             })
-
+            $('#defaultModal').modal('toggle');
         });
         $("#tab_demandes").on('click','.refuse',function(e){
             console.log(e);
