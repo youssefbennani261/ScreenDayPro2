@@ -68,10 +68,10 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
         </div> 
         <div class="container-fluid">
             <div class="row clearfix">
-                <div class="col-lg-4 col-md-12">
+                <div class="col-lg-12 col-md-12">
                     <div class="card mcard_3">
                         <div class="body">
-                            <a href="profile.php"><img src=<?php echo $_SESSION['riad'][2]?> class="rounded-circle shadow " alt="profile-image"></a>
+                            <a href="profile.php"><img  src=<?php echo $_SESSION['riad'][2]?> class="rounded-circle shadow col-lg-4" alt="profile-image"></a>
                             <h4 class="m-t-10">vvvvvvvvvvvvv</h4>                            
                             <div class="row">
                                 <div class="col-12">
@@ -101,12 +101,12 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                 </div>
               
             </div>
-            <div class="col-lg-8 col-md-12">                
+            <div class="col-lg-12 col-md-12">                
                     <div class="card">
                         <div class="header">
                             <h2><strong> List </strong> Reservation D'agence</h2>
                         </div>
-                        <div class="body">
+                        <div class="body ">
                            
                             <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
                             <table class="table table-hover c_table">
