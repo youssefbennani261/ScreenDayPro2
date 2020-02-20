@@ -9,6 +9,8 @@
 
 <title>Modification Profile </title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/plugins/dropify/css/dropify.min.css">
 <!-- Favicon-->
 <?php
 session_start();
