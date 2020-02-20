@@ -85,7 +85,8 @@ if($op==5){
         $req2=mysqli_query($con,$sql2);
         $sql3="update chambre set Cas_reservation=1 where num_chambre='".$idchambre."'";
         $req3=mysqli_query($con,$sql3);
-
+        $sql4="update demande set vérifié=1 where Num_Demande='".$demade."'";
+        $req4=mysqli_query($con,$sql4);
        }
 }
 if($op==6){

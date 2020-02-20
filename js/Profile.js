@@ -49,7 +49,8 @@ $(document).on('click', '#sendfile', function(){
      processData: false,
     
     });
-    location.reload();
+   //  location.reload();
+   window.location.reload();
    }
   });
 }

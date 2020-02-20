@@ -20,12 +20,11 @@ if(this.status==200 && this.readyState==4){
 }
 
     function unit1(id){
-       
         var xhr=new XMLHttpRequest();
         xhr.onreadystatechange=function(){
             if(this.status==200 && this.readyState==4){
               
-                 var data=JSON.parse( this.response);
+                 var data=JSON.parse(this.response);
                data.forEach(bo)
                function bo(item,index){
                  t+="<tr><td style='display: table-cell'>"+ item['nom']+" </td><td style='display: table-cell'>"+ item['dd']+"</td><td style='display: table-cell'>"+item['df']+"</td><td style='display: table-cell'>"+item['prix']+"</td><td style='display: table-cell'>"+item['nrespo']+"</td><td style='display: table-cell'>"+item['nbr']+"</td></tr>";
@@ -38,7 +37,6 @@ localStorage['listdomande']=t;
         xhr.open("POST","php/riad_reservation.php",true);
         xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
         xhr.send(data);
-      
       }
       function load1(){
         document.getElementById("tab_demande").innerHTML=localStorage['listdomande'];
