@@ -9,9 +9,11 @@ session_start();
  $location = '../uploads/' . $name;
  move_uploaded_file($_FILES["file"]["tmp_name"], $location);
  $location2='uploads/'.$name;
- $sql="insert into mesimages values(0,'".$location2."','".$_SESSION["riad"][0]."')";
-$req=mysqli_query($con,$sql);
+ $sql="update riad set Logo_src ='".$location2."' where Num_Riad=".$_SESSION["riad"][0]."";
+ $req=mysqli_query($con,"select Logo_src from riad where Num_Riad=".$_SESSION["riad"][0]."");
+ $req2=$req->fetch_assoc();
+ $_SESSION['riad'][2]=$req2['Logo_src'];
+ $req=mysqli_query($con,$sql);
 }
 
 ?>
-

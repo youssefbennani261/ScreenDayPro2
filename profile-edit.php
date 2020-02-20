@@ -227,16 +227,17 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                             <h2><strong>Picture</strong> Settings</h2>
                         </div>
                         <div class="body">
-                          
                             <div class="row">
-                            <input type='file' class='dropify' id='fileup'/><br><br>                    
+                                               
                                 <img id="imgprofile" src=<?php echo $_SESSION['riad'][2] ?>   class="rounded-circle shadow " alt="profile-image">                               <div class="col-12">
                                                                       
                                 </div>
-                                <button type="button" class='btn btn-primary float-right' id='sendfile'>Upload</button>
-                                <input class="btn btn-info"  type="submit" name="submit" value="Save Changes " >     
+                                  
                                                            
-                            </div>                              
+                            </div>    
+                        <input type='file' class='dropify' id='fileup'/><br><br>
+                        <button type="button" class='btn btn-primary float-right' id='sendfile'>Upload</button>
+          
                         </div>
                     </div>
                     <div class="card">
@@ -312,6 +313,9 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
     </div>
 </section>
 <!-- Jquery Core Js --> 
+
+<script src="js/jquery.min.js"></script>
+<script src="js/edit_profile.js"></script>
 <script src="js/main.js"></script>
 <script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
 <script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
