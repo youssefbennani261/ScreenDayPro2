@@ -125,7 +125,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                     </ul>
                 </div>                
             </div>                
-        </div>       
+        </div>      
         <div class="tab-pane right_chat" id="chat">
             <div class="slim_scroll">
                 <div class="card">
@@ -225,15 +225,15 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                             <h2><strong>Picture</strong> Settings</h2>
                         </div>
                         <div class="body">
-                            <form action="php/upload.php"  method="POST" enctype="multipart/form-data">
-                        <input type="file" name="file" id="file"/>
+                          
                             <div class="row">
-                                
+                            <input type='file' class='dropify' id='fileup'/><br><br>                    
                                 <img id="imgprofile" src=<?php echo $_SESSION['riad'][2] ?>   class="rounded-circle shadow " alt="profile-image">                               <div class="col-12">
                                                                       
                                 </div>
+                                <button type="button" class='btn btn-primary float-right' id='sendfile'>Upload</button>
                                 <input class="btn btn-info"  type="submit" name="submit" value="Save Changes " >     
-                              </form>                                
+                                                           
                             </div>                              
                         </div>
                     </div>
@@ -310,9 +310,13 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
     </div>
 </section>
 <!-- Jquery Core Js --> 
+<script src="js/main.js"></script>
 <script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
 <script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
  <script src="js/edit-profile.js"></script> <!-- modification profile -->
 <script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
+<script src="assets/plugins/dropify/js/dropify.min.js"></script>
+<script src="assets/js/pages/forms/dropify.js"></script>  
+      
 </body>
 </html>

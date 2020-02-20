@@ -45,8 +45,9 @@ $(document).on('click', '#sendfile', function(){
      contentType: false,
      cache: false,
      processData: false,
-
+    
     });
+    location.reload();
    }
   });
 }

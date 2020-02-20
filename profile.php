@@ -309,6 +309,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                             </div>
                             <input type='file' class='dropify' id='fileup'/><br><br>
                             <button type="button" class='btn btn-primary float-right' id='sendfile'>Upload</button>
+                            
                         </div>
                     </div>
                 </div>
