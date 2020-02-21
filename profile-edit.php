@@ -254,7 +254,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                                 </div>                                    
                                 <div class="col-lg-4 col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="ville" placeholder="Ville">
+                                        <input type="text" class="form-control" id="Directeur" placeholder="Directeur">
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-12">
@@ -264,12 +264,12 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                                 </div>
                                 <div class="col-lg-4 col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="pays" placeholder="Pays">
+                                        <input type="text" class="form-control" id="adresse" placeholder="Adresse">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea rows="4" class="form-control no-resize" id="adresse" placeholder="Adresse "></textarea>
+                                        <textarea rows="4" class="form-control no-resize" id="Detail" placeholder="Detail de riad"></textarea>
                                     </div>
                                 </div>
                                

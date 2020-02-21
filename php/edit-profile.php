@@ -6,9 +6,9 @@ $user=isset($_POST['user'])?$_POST['user']:'';
 $pw= md5(isset($_POST['pw'])?$_POST['pw']:'');
 $pwafter= md5( isset($_POST['pwafter'])?$_POST['pwafter']:'');
 $nom=isset($_POST['nomriad'])?$_POST['nomriad']:'';
-$ville=isset($_POST['ville'])?$_POST['ville']:'';
+$directeur=isset($_POST['Directeur'])?$_POST['Directeur']:'';
 $email=isset($_POST['email'])?$_POST['email']:'';
-$pays=isset($_POST['pays'])?$_POST['pays']:'';
+$detail=isset($_POST['Detail'])?$_POST['Detail']:'';
 $adresse=isset($_POST['adresse'])?$_POST['adresse']:'';
 $cas=-1;
 $a=$_SESSION["riad"][0];
@@ -25,14 +25,14 @@ else
   if($op==2){
  if($nom!=""){
        $req=mysqli_query($con,"update riad set Nom_Riad ='".$nom."' where Num_Riad=".$a."") or die  (" !!!!!!!!!!!!!!!!!!!!");$cas=1;}
-  if($ville!=""){
-       $req=mysqli_query($con,"update riad set Nom_Riad ='".$ville."' where Num_Riad=".$a."") or die  (" !!!!!!!!!!!!!!!!!!!!");$cas=1;}
+if($directeur!=""){
+       $req=mysqli_query($con,"update riad set Directeur ='".$directeur."' where Num_Riad=".$a."") or die  (" !!!!!!!!!!!!!!!!!!!!");$cas=1;}
   if($email!=""){
-       $req=mysqli_query($con,"update riad set Nom_Riad ='".$email."' where Num_Riad=".$a."") or die  (" !!!!!!!!!!!!!!!!!!!!");$cas=1;}
-  if($pays!=""){
-       $req=mysqli_query($con,"update riad set Nom_Riad ='".$pays."' where Num_Riad=".$a."") or die  (" !!!!!!!!!!!!!!!!!!!!");$cas=1;}
+       $req=mysqli_query($con,"update riad set Email ='".$email."' where Num_Riad=".$a."") or die  (" !!!!!!!!!!!!!!!!!!!!");$cas=1;}
+  if($detail!=""){
+       $req=mysqli_query($con,"update riad set Detail_Riad ='".$detail."' where Num_Riad=".$a."") or die  (" !!!!!!!!!!!!!!!!!!!!");$cas=1;}
   if($adresse!=""){
-       $req=mysqli_query($con,"update riad set Nom_Riad ='".$adresse."' where Num_Riad=".$a."") or die  (" !!!!!!!!!!!!!!!!!!!!");$cas=1;}
+       $req=mysqli_query($con,"update riad set Adresse ='".$adresse."' where Num_Riad=".$a."") or die  (" !!!!!!!!!!!!!!!!!!!!");$cas=1;}
   echo $cas;
       }
 

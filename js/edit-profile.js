@@ -29,6 +29,7 @@ function changerPassword(){
       xhr.onreadystatechange=function(){
        if(this.status==200 && this.readyState==4){
      var cas =this.responseText;
+  
        if(cas==-1){
       alert("il ñ'y a pas modification ");
        }
@@ -41,13 +42,13 @@ function changerPassword(){
       }
       var op=2;
       var nom=document.getElementById("nomriad").value;
-      var ville=document.getElementById("ville").value;
+      var directeur=document.getElementById("Directeur").value;
       var email=document.getElementById("email").value;
-      var pays=document.getElementById("pays").value;
+      var Detail=document.getElementById("Detail").value;
       var adresse=document.getElementById("adresse").value;
       xhr.open("POST","php/edit-profile.php",true);
       xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-       var data="op="+op+"&nomriad="+nom+"&ville="+ville+"&email="+email+"&pays="+pays+"&adresse="+pays+"&adresse="+adresse;
+       var data="op="+op+"&nomriad="+nom+"&Directeur="+directeur+"&email="+email+"&adresse="+adresse+"&Detail="+Detail;
        xhr.send(data);
         }
 
