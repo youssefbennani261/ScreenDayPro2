@@ -71,8 +71,9 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                 <div class="col-lg-12 col-md-12">
                     <div class="card mcard_3">
                         <div class="body">
-                            <a href="profile.php" id="imgp"></a>
-                            <h4 class="m-t-10">vvvvvvvvvvvvv</h4>                            
+                            <a href="#" id="imgp"> </a>
+                            <h4 class="m-t-10" id="no"></h4> 
+                            <h5 class="m-t-10" id="te"></h5>                            
                             <div class="row">
                                 <div class="col-12">
                                     <!-- <ul class="social-links list-unstyled">
@@ -80,7 +81,8 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                                         <li><a title="twitter" href="javascript:void(0);"><i class="zmdi zmdi-twitter"></i></a></li>
                                         <li><a title="instagram" href="javascript:void(0);"><i class="zmdi zmdi-instagram"></i></a></li>
                                     </ul> -->
-                                    <p class="text-muted"><?php echo $_SESSION['riad'][3]?></p>
+                                    <p class="text-muted" id="ad"></p>
+                                   
                                 </div>
                                 <!-- <div class="col-4">                                    
                                     <small>Following</small>
