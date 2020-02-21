@@ -1,5 +1,4 @@
  var t="";
- var tab2=[];
 function load()
 {
 var xhr=new XMLHttpRequest();
@@ -21,21 +20,22 @@ if(this.status==200 && this.readyState==4){
 
 }
 
-    function unit1(id){      
+    function unit1(id){     
+     localStorage['id']=id; 
         var xhr=new XMLHttpRequest();
         xhr.onreadystatechange=function(){
             if(this.status==200 && this.readyState==4){
                  var data=JSON.parse( this.response);
-                 var da=data['reservation'];
-               da.forEach(bo)
+               data.forEach(bo)
                function bo(item,index){
-           
+              
                  t+="<tr><td style='display: table-cell'>"+ item['nom']+" </td><td style='display: table-cell'>"+ item['dd']+"</td><td style='display: table-cell'>"+item['df']+"</td><td style='display: table-cell'>"+item['prix']+"</td><td style='display: table-cell'>"+item['nrespo']+"</td><td style='display: table-cell'>"+item['nbr']+"</td></tr>";
                 
                  
                 }
                
 sessionStorage['list']=t;
+
             }
         }
         var data="op="+1+"&id="+id;
@@ -43,17 +43,36 @@ sessionStorage['list']=t;
         xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     
         xhr.send(data);
+
       }
 
       function load1(){
          document.getElementById("tab_demande").innerHTML=sessionStorage['list'];
-     load2();
+         load2();
         }
 
 
       function load2(){
 
-
+        var xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=function(){
+            if(this.status==200 && this.readyState==4){
+                 var data=JSON.parse( this.response);
+               data.forEach(bo)
+               function bo(item,index){
+              
+              document.getElementById("imgp").innerHTML='<img class="media-object " src="'+item['Logo']+'" alt=""></img>';
+              document.getElementById("no").innerText=item['Nom'];
+              document.getElementById("ad").innerText=item['Adresse'];
+              document.getElementById("te").innerText=item['Telephone'];
+            }
+            }
+        }
+        var data="op="+2+"&id="+localStorage['id'];
+        xhr.open("POST","php/riad_reservation.php",true);
+        xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    
+        xhr.send(data);
      
 
 
