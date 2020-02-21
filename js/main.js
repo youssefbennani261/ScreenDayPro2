@@ -65,9 +65,12 @@ if(window.location.pathname=="/ScreenDayPro2/demande.php"){
         var chambres;
         $.get("php/riad.php",{op:4},(data)=>{
              chambres=JSON.parse(data);
+             console.log(chambres);
+             
              let ind =$(this).attr('id');
              let pers=JSON.parse(demandes[ind].detail);
              $(".modal-body").empty();
+             $("#resalert").addClass("d-none");
              for(let i=0;i<pers.length;i++){
                  if(i==0)
                  $(".modal-body").append("<input type='hidden' id='iddem' value='"+demandes[ind].numdemande+"'></input>"+"<input type='hidden' id='numag' value='"+demandes[ind].Num_agence+"'></input>"+" veuillez choisir les Chambres pour <br> "+pers[i].client+"("+pers[i].type+")"+"<i class='zmdi zmdi-account-circle zmdi-hc-lg'></i>"+" <select class='chambres form-control'></select><a class='float-right setchambre'></a><br>Prix"+"   <i class='zmdi zmdi-money-box zmdi-hc-lg'></i>"+"<br><input type='text' class='form-control setprix' placeholder='Tappez le prix de cette chambre'><br>");
@@ -138,6 +141,9 @@ function getrepeated(){
     // });
     return data;
 }
+
+//verification de la validation des inputs 
+
 function validationinput(selector){
     var state=true;
     let inputs=document.querySelectorAll(selector);
@@ -145,9 +151,12 @@ function validationinput(selector){
     for(let i=0;i<inputs.length;i++){
         
         if(inputs[i].value=="" || exp.test(inputs[i].value)==false){
-        inputs[i].classList.add("form-control-warning");
+        inputs[i].classList.add("is-invalid");
         state=false;
         }
     }
     return state;
+}
+function verificationres(){
+    
 }

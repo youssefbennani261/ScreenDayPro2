@@ -295,7 +295,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                         <div class="header">
                             <h2><strong> Riad </strong> Gallery</h2>
                         </div>
-                        <div class="body">
+                        <div class="body clearfix">
                             <p>Tous les Photos <a href="profile.php" target="_blank"><?php  echo $_SESSION['riad'][1] ?></a></p>
                             <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
                                 <!-- <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/1.jpg"> <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/1.jpg" alt=""> </a> </div>
