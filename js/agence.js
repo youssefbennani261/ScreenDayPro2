@@ -43,7 +43,6 @@ sessionStorage['list']=t;
         xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     
         xhr.send(data);
-      
       }
 
       function load1(){
