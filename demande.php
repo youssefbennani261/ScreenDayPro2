@@ -106,7 +106,9 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                 <div class="modal-header">
                     <h4 class="title" id="defaultModalLabel">Reservation</h4>
                 </div>
-                
+                <div id="resalert" class="alert alert-danger col-lg-11 mx-auto mt-4 d-none">
+                            Veuillez Verifier vos champs ! 
+                </div>
                 <div class="modal-body">
                
 

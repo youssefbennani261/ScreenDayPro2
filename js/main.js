@@ -86,6 +86,8 @@ if(window.location.pathname=="/ScreenDayPro2/demande.php"){
         })
     });
         $("#save").click(function(){
+            if(validationinput(".setprix")==true){
+                $("#resalert").addClass("d-none");
             var prix=JSON.stringify(getrepeated());
             var iddemande=parseInt($("#iddem").val());
             var num_age=parseInt($("#numag").val());
@@ -93,9 +95,15 @@ if(window.location.pathname=="/ScreenDayPro2/demande.php"){
                 console.log(data);
             })
             $('#defaultModal').modal('toggle');
+        }
+        else {
+            $("#resalert").removeClass("d-none");         
+        }
+
+
         });
         $("#tab_demandes").on('click','.refuse',function(e){
-            console.log(e);
+            
             // swal("Avertissement", "Voulez vous supprimer cette demande ?","warning");
             swal("Avertissement", "Voulez vous supprimer cette demande ?","warning",{
                 buttons: {
@@ -107,7 +115,7 @@ if(window.location.pathname=="/ScreenDayPro2/demande.php"){
                 if (isConfirm) {
                   swal({
                     title: 'supprimé',
-                    text: 'La demande est supp  rimé!',
+                    text: 'La demande est supprimé!',
                     icon: 'success'
                   }).then(function() {
                     $.get("php/riad.php",{op:6,demade:parseInt(e.currentTarget.id.substr(1,1))},()=>{
@@ -130,4 +138,14 @@ function getrepeated(){
     // });
     return data;
 }
-
+function validationinput(selector){
+    var state=true;
+    let inputs=document.querySelectorAll(selector);
+    for(let i=0;i<inputs.length;i++){
+        if(inputs[i].value==""){
+        inputs[i].classList.add("form-control-warning");
+        state=false;
+        }
+    }
+    return state;
+}
