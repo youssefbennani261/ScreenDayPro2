@@ -141,8 +141,10 @@ function getrepeated(){
 function validationinput(selector){
     var state=true;
     let inputs=document.querySelectorAll(selector);
+    var exp = new RegExp("^[0-9]*$");
     for(let i=0;i<inputs.length;i++){
-        if(inputs[i].value==""){
+        
+        if(inputs[i].value=="" || exp.test(inputs[i].value)==false){
         inputs[i].classList.add("form-control-warning");
         state=false;
         }
