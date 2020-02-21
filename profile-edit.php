@@ -226,7 +226,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                         <div class="header">
                             <h2><strong>Picture</strong> Settings</h2>
                         </div>
-                        <div class="body">
+                        <div class="body clearfix">
                             <div class="row">
                                                
                                 <img id="imgprofile" src=<?php echo $_SESSION['riad'][2] ?>   class="rounded-circle shadow " alt="profile-image">                               <div class="col-12">

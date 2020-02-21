@@ -157,6 +157,6 @@ function validationinput(selector){
     }
     return state;
 }
-function verificationres(){
-    
-}
+// function verificationres(){
+
+// }
