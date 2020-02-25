@@ -52,42 +52,43 @@ if($op==1){
     echo json_encode($tab);
 }
 if($op==2){
-    $req1=mysqli_query($con,"select Nom_responsable,date(date_debut),date(date_fin) from reservation r join demande d on r.Num_Demande=d.Num_Demande where Num_Riad=1 and MONTH(Date_reservation) = MONTH(CURRENT_DATE()) and YEAR(Date_reservation) = YEAR(CURDATE())");
+    $req1=mysqli_query($con,"select CONCAT(a.Nom,' ( chambre ',pr.num_chambre,' )'),date(date_debut),date(date_fin),Detail from reservation r join demande d on r.Num_Demande=d.Num_Demande join agence a on a.Num_agence=d.Num_agence JOIN prix_chambre pr on pr.id_Prix=r.id_Prix where d.Num_Riad='{$_SESSION["riad"][0]}' and MONTH(Date_reservation) = MONTH(CURRENT_DATE()) and YEAR(Date_reservation) = YEAR(CURDATE()) group by Nom_responsable");
     while($row=$req1->fetch_array())
-    $tab[]=array("title"=>$row[0],"start"=>$row[1],"end"=>$row[2]);
+    $tab[]=array("title"=>$row[0],"start"=>$row[1],"end"=>$row[2],"detail"=>$row[3]);
     echo json_encode($tab);
 }
 if($op==3){
     $req=mysqli_query($con,"select Num_Demande,nom,Nom_responsable,Date_debut,Date_fin,Detail,a.Num_agence from demande d
     join agence a on d.Num_agence=a.Num_agence
-    where Num_riad='{$_SESSION["riad"][0]}' and vérifié=0");
+    where d.Num_riad='{$_SESSION["riad"][0]}' and vérifié=0");
     while($row=$req->fetch_array())
     $tab[]=array("numdemande"=>$row[0],"nomagg"=>$row[1],"respo"=>$row[2],"datedeb"=>$row[3],"datefin"=>$row[4],"detail"=>$row[5],"Num_agence"=>$row[6]);
     echo json_encode($tab);
 }
 if($op==4){
     $req=mysqli_query($con,"select num_chambre,Nbr_Adulte,nbr_enfent from chambre where Cas_reservation=0 and Num_riad='{$_SESSION["riad"][0]}'");
+    $req2=mysqli_query($con,"select * from prix_chambre where Num_agence='".$num_agence."'");
     while($row=$req->fetch_array())
     $tab[]=array("num_chambre"=>$row[0],"nbradulte"=>$row[1],"nbr_enfent"=>$row[2]);
-    echo json_encode($tab);
+    while($row=$req2->fetch_array())
+    $tab2[]=array("id_Prix"=>$row[0],"Prix"=>$row[1],"num_chambre"=>$row[2]);
+    echo json_encode(array("chambres"=>$tab,"prix"=>$tab2));
 }
 
 if($op==5){
     $timestamp = date("Y-m-d H:i:s");
     $tab=json_decode($prix, true);
-    // $req=mysqli_query($con,"delete from demande where Num_Demande ='".$demade."'");
     foreach ($tab as $item) {
-        $prix1=$item["prix"];
-        $idchambre=$item["id_chambre"];
-        $sql="insert into prix_chambre values (0,'".$prix1."','".$idchambre."')";
-        $req=mysqli_query($con,$sql);
-        $sql2="insert into reservation values (0,'".$timestamp."','".mysqli_insert_id($con)."','".$num_agence."','".$demade."')";
+        $prix1=$item["id_Prix"];
+        $idchambre=$item["num_chambre"];
+        $sql2="insert into reservation values (0,'".$timestamp."','".$prix1."','".$num_agence."','".$demade."')";
         $req2=mysqli_query($con,$sql2);
         $sql3="update chambre set Cas_reservation=1 where num_chambre='".$idchambre."'";
         $req3=mysqli_query($con,$sql3);
         $sql4="update demande set vérifié=1 where Num_Demande='".$demade."'";
         $req4=mysqli_query($con,$sql4);
        }
+       echo "1";
 }
 if($op==6){
     $req=mysqli_query($con,"delete from demande where Num_Demande ='".$demade."'");

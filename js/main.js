@@ -47,39 +47,49 @@ if(thismonth<lastmonth){
 }
 return output;
 }
-
-if(window.location.pathname=="/ScreenDayPro2/demande.php"){
-
-    var demandes;
-    
+function getdemandes(){
+    $("#tab_demandes").empty();
     $.get("php/riad.php",{op:3},function(data){
         demandes=JSON.parse(data);
         for(let i=0;i<demandes.length;i++){
             $("#tab_demandes").append("<tr><td style='display: table-cell'>"+demandes[i].nomagg+"</td><td style='display: table-cell'>"+demandes[i].respo+"</td><td style='display: table-cell'>"+demandes[i].datedeb+"</td><td style='display: table-cell'>"+demandes[i].datefin+"</td><td style='display: table-cell'>"+JSON.parse(demandes[i].detail).length+"</td><td><button class='btn btn-success accepte' data-toggle='modal' data-target='#defaultModal' id='"+i+"'>Accepter</button></td><td><button class='btn btn-danger refuse' id=d"+demandes[i].numdemande+" >Refuser</button></td></tr>");
-
         }
     })
-    
-    $("#tab_demandes").on('click','.accepte',function(){
+}
+
+if(window.location.pathname=="/ScreenDayPro2/demande.php"){
+    let count=0;
+    var demandes;
+    var chambres;
+
+    getdemandes();
+    $("#tab_demandes").on('click','.accepte',function(e){
         var reservation=[];
-        var chambres;
-        $.get("php/riad.php",{op:4},(data)=>{
+        
+        let numaggence=demandes[e.target.id].Num_agence;
+        $.get("php/riad.php",{op:4,num_agence:numaggence},(data)=>{
              chambres=JSON.parse(data);
              console.log(chambres);
-             
              let ind =$(this).attr('id');
              let pers=JSON.parse(demandes[ind].detail);
              $(".modal-body").empty();
              $("#resalert").addClass("d-none");
              for(let i=0;i<pers.length;i++){
+                 count=0
+                 if(pers[i].type=="bebe")
+                 count++;
+                 else 
+                 count+=2;
                  if(i==0)
-                 $(".modal-body").append("<input type='hidden' id='iddem' value='"+demandes[ind].numdemande+"'></input>"+"<input type='hidden' id='numag' value='"+demandes[ind].Num_agence+"'></input>"+" veuillez choisir les Chambres pour <br> "+pers[i].client+"("+pers[i].type+")"+"<i class='zmdi zmdi-account-circle zmdi-hc-lg'></i>"+" <select class='chambres form-control'></select><a class='float-right setchambre'></a><br>Prix"+"   <i class='zmdi zmdi-money-box zmdi-hc-lg'></i>"+"<br><input type='text' class='form-control setprix' placeholder='Tappez le prix de cette chambre'><br>");
+                 $(".modal-body").append("<input type='hidden' id='iddem' value='"+demandes[ind].numdemande+"'></input>"+"<input type='hidden' id='numag' value='"+demandes[ind].Num_agence+"'></input>"+" veuillez choisir les Chambres pour <br> "+pers[i].client+"("+pers[i].type+")"+"<i class='zmdi zmdi-account-circle zmdi-hc-lg'></i>"+" <select class='chambres form-control'></select><a class='float-right setchambre'></a><br>");
                  else
-                 $(".modal-body").append(pers[i].client+"("+pers[i].type+")"+"<i class='zmdi zmdi-account-circle zmdi-hc-lg'></i>"+" <select class='chambres form-control'></select><br>Prix"+"   <i class='zmdi zmdi-money-box zmdi-hc-lg'></i>"+"<br><input type='text' class='form-control setprix' placeholder='Tappez le prix de cette chambre'><br>");
+                 $(".modal-body").append(pers[i].client+"("+pers[i].type+")"+"<i class='zmdi zmdi-account-circle zmdi-hc-lg'></i>"+" <select class='chambres form-control'></select><br><br>");
+                 
              }
-             for(let i=0;i<chambres.length;i++){
-             $(".chambres").append(new Option("chambre "+chambres[i].num_chambre+" ("+chambres[i].nbradulte+" Adulte "+chambres[i].nbr_enfent+" bebe "+" )",chambres[i].num_chambre));
+             for(let i=0;i<chambres["chambres"].length;i++){
+             $(".chambres").append(new Option("chambre "+chambres["chambres"][i].num_chambre+" ("+chambres["chambres"][i].nbradulte+" Adulte "+chambres["chambres"][i].nbr_enfent+" bebe "+" )",chambres["chambres"][i].num_chambre));
              }
+             
         })
         $(".modal-body").on('change','.chambres',(event)=>{
             $('.setchambre').html("Affecter chambre "+chambres[event.originalEvent.target.selectedIndex].num_chambre+" pour tous");
@@ -89,18 +99,18 @@ if(window.location.pathname=="/ScreenDayPro2/demande.php"){
         })
     });
         $("#save").click(function(){
-            if(validationinput(".setprix")==true){
-                $("#resalert").addClass("d-none");
-            var prix=JSON.stringify(getrepeated());
+            if(validationres()<count)
+            $("#resalert").removeClass("d-none");         
+            else if(validationres()==count ||validationres()>count){
+            $("#resalert").addClass("d-none");
+            var prix=JSON.stringify(getchambre_idprix());
             var iddemande=parseInt($("#iddem").val());
             var num_age=parseInt($("#numag").val());
             $.get("php/riad.php",{op:5,prix:prix,demade:iddemande,num_agence:num_age},(data)=>{
-                console.log(data);
+                getdemandes();
             })
             $('#defaultModal').modal('toggle');
-        }
-        else {
-            $("#resalert").removeClass("d-none");         
+            
         }
 
 
@@ -122,23 +132,37 @@ if(window.location.pathname=="/ScreenDayPro2/demande.php"){
                     icon: 'success'
                   }).then(function() {
                     $.get("php/riad.php",{op:6,demade:parseInt(e.currentTarget.id.substr(1,1))},()=>{
-                        
+                        getdemandes();
                     })
                   });
                 } 
         })})
 
     }
-function getrepeated(){
+function getchambre_idprix(){
     var data=[];
-    var occurs=[];
-    for(let i=0;i<$(".setprix").length;i++){
-           data.push({"id_chambre":parseInt($(".chambres")[i].value),"prix":parseInt($(".setprix")[i].value)});
-        //    "id_demande":parseInt($("#iddem").val()),
+    let ch;
+    for(let i=0;i<$(".chambres").length;i++){
+         ch=chambres["prix"].find(el=>el.num_chambre==chambres["chambres"][$(".chambres")[0].selectedIndex].num_chambre)
+         data.push({num_chambre:ch.num_chambre,id_Prix:ch.id_Prix});
     }
-    // $.each(data, function(i, el){
-    //     if($.inArray(el.prix, occurs) === -1) occurs.push(parseInt(el));
-    // });
+
+    return data;
+}
+function validationres(){
+    let ind=[];
+    let filtred=[];
+    let data=0;
+    let selects=$(".chambres");
+    for(let i=0;i<selects.length;i++){
+        ind.push(selects[i].selectedIndex);
+    }
+    $.each(ind, function(i, el){
+        if($.inArray(el, filtred) === -1) filtred.push(el);
+    });
+    for(let i=0;i<filtred.length;i++)
+    data+=parseInt(chambres["chambres"][i].nbradulte)*2+parseInt(chambres["chambres"][i].nbr_enfent);
+
     return data;
 }
 
@@ -157,6 +181,233 @@ function validationinput(selector){
     }
     return state;
 }
-// function verificationres(){
+if(window.location.pathname=="/ScreenDayPro2/email.php"){
+    let clone;
+    let emails;
+    let agences;
+    let sentmails;
+    $.get("php/email.php",{op:1},(data)=>{
+        emails=JSON.parse(data);
+        getemail();
+    })
+    // function returntomails(){
+    //     if(clone)
+    //     $(".right").replaceWith(clone);
+        
+    // }
+    function getemail(){
+        $("#nbrmsg").html(emails.length);
+        let s=`<div class="i_action d-flex justify-content-between align-items-center">
+                                
+        <div class="">
+            <div class="btn-group">
+                <a href="javascript:void(0);" class="btn btn-outline-secondary btn-sm delete"><i class="zmdi zmdi-delete"></i></a>
+            </div>
+        </div>
+    </div>
+<div class="table-responsive"><table class="table c_table inbox_table" id="emails">`;
+        for(let i=0;i<emails.length;i++){
+            s+=`<tr>
+            <td class="chb">
+                <div class="checkbox simple">
+                    <input id="mc${i}" class="cbo" value=${emails[i].id_email} type="checkbox">
+                    <label for="mc${i}"></label>
+                </div>
+            </td>
+            <td class="starred "><a><i class="zmdi zmdi-star"></i></a></td>
+            <td class="u_image"><img src=${emails[i].logo_src} alt="user" class="rounded" width="30"></td>
+            <td class="u_name"><h5 class="font-15 mt-0 mb-0">${emails[i].Nom}</h6></td>
+            <td class="max_ellipsis">
+                <a class="link" a href="javascript:showsingleemail(${i});">
+                    <span class="badge badge-primary mr-2">${emails[i].sujet}</span>
+                    ${emails[i].content}
+                </a>
+            </td>
+            <td class="time">${emails[i].date_envoi}</td>
+        </tr>`;
+        }
+        s+=`</table></div>`;
+        $(".right").html(s);
+        $(".delete").click(()=>{
+            var emailstoremove = $(".cbo:checked").map(function(){
+                return $(this).val();
+              }).get();
+              $.post("php/email.php",{op:4,emails:JSON.stringify(emailstoremove)},(data)=>{
+                 window.location.reload();
+              })
+        })
 
-// }
+    }
+    function showsingleemail(i){
+        clone=$(".right").clone();
+        let s =`<div class="inbox right">
+        <div class="card">
+            <div class="body mb-2">
+                <div class="d-flex justify-content-between flex-wrap-reverse">
+                    <h5 class="mt-0 mb-0 font-17">${emails[i].sujet}</h5>
+                </div>
+            </div>
+            <div class="body mb-2">
+                <ul class="list-unstyled d-flex justify-content-md-start mb-0">
+                    <li><img class="rounded w40" src=${emails[i].logo_src} alt=""></li>
+                    <li class="ml-3">
+                        <p class="mb-0"><span class="text-muted">From:</span> ${emails[i].Nom}</p>
+                        <p class="mb-0"><span class="text-muted">To:</span> Moi</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="body mb-2">
+            <p>${emails[i].content}</p>
+
+            </div>
+            <div class="body">
+                <a  href="javascript:sendmessage(${i});" class="p-2"><i class="zmdi zmdi-mail-reply"></i> Reply</a>
+            </div>
+        </div>
+    </div>`;
+    $(".right").html(s);
+
+    }
+    function sendmessage(i){
+        let s = `<div class="inbox right">
+        <div class="card">
+            <div class="body mb-2">
+                <div class="form-group">
+                    <input type="text" class="form-control to" value="${emails[i].Nom}" id="${emails[i].numag}" />
+                </div>
+                <div class="form-group mb-0">
+                    <input type="text" class="form-control sujet" placeholder="Subject" />
+                </div>
+            </div>
+            <div class="body">
+                <div class="summernote">
+
+                </div>
+                <button type="button" class="btn btn-info waves-effect m-t-20" id=sendmsg>SEND</button>
+            </div>
+        </div>
+    </div>`;
+    $(".right").html(s);
+    $('.summernote').summernote({
+        lang: 'fr-FR'
+      });
+
+    
+      $("#sendmsg").click(()=>{
+         $.post("php/email.php",{op:2,agence:parseInt($(".to").attr("id")),sujet:$(".sujet").val(),content:$('.summernote').summernote('code')},(data)=>{
+            $.notify({
+                message: "Email a été envoyé avec succes",
+              },
+              {
+                    type: 'success'
+                });
+                getemail();
+         })
+      })
+
+    }
+    function composemsg(){
+        $.get("php/email.php",{op:2},(data)=>{
+            agences=JSON.parse(data);
+            let s = `<div class="inbox right">
+            <div class="card">
+                <div class="body mb-2">
+                    <div class="form-group">
+                        <select class="form-control" id=agences></select>
+                    </div>
+                    <div class="form-group mb-0">
+                        <input type="text" class="form-control sujet" placeholder="Subject" />
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="summernote">
+    
+                    </div>
+                    <button type="button" class="btn btn-info waves-effect m-t-20" id=sendmsg>SEND</button>
+                </div>
+            </div>
+        </div>`;
+    
+        $(".right").html(s);
+            
+        $('.summernote').summernote({
+            lang: 'fr-FR'
+          });
+          for(let i=0;i<agences.length;i++){
+            $("#agences").append(new Option(agences[i].Nom,agences[i].Num_agence));
+        }
+        $("#sendmsg").click(()=>{
+            $.post("php/email.php",{op:3,agence:$("#agences").val(),sujet:$(".sujet").val(),content:$('.summernote').summernote('code')},(data)=>{
+                $.notify({
+                    message: "Email a été envoyé avec succes",
+                  },
+                  {
+                        type: 'success'
+                    });
+            })
+            getemail();
+
+        })
+        })
+  
+    }
+    function getsentmsg(){
+        $("#sent").addClass("active"); 
+        $("#inbox").removeClass("active");       
+        $.get("php/email.php",{op:3},(data)=>{
+            sentmails=JSON.parse(data);
+            let s=`<div class="table-responsive"><table class="table c_table inbox_table" id="emails">`;
+            for(let i=0;i<sentmails.length;i++){
+                s+=`<tr>
+                <td class="chb">
+                    <div class="checkbox simple">
+                        <input id="mc1" type="checkbox">
+                        <label for="mc1"></label>
+                    </div>
+                </td>
+                <td class="starred "><a><i class="zmdi zmdi-star"></i></a></td>
+                <td class="u_image"><img src="./${sentmails[i].logo_src}" alt="user" class="rounded" width="30"></td>
+                <td class="u_name"><h5 class="font-15 mt-0 mb-0">${sentmails[i].Nom_Riad}</h6></td>
+                <td class="max_ellipsis">
+                    <a class="link" a href="javascript:view_sentmsg(${i});">
+                        <span class="badge badge-primary mr-2">${sentmails[i].sujet}</span>
+                        ${sentmails[i].content}
+                    </a>
+                </td>
+                <td class="time"> ${sentmails[i].date_envoi}</td>
+            </tr>`;
+            }
+            s+=`</table></div>`;
+            $(".right").html(s);
+        })
+    }
+    function view_sentmsg(i){
+        clone=$(".right").clone();
+        let s =`<div class="inbox right">
+        <div class="card">
+            <div class="body mb-2">
+                <div class="d-flex justify-content-between flex-wrap-reverse">
+                    <h5 class="mt-0 mb-0 font-17">${sentmails[i].sujet}</h5>
+                </div>
+            </div>
+            <div class="body mb-2">
+                <ul class="list-unstyled d-flex justify-content-md-start mb-0">
+                    <li><img class="rounded w40" src=${sentmails[i].logo_src} alt=""></li>
+                    <li class="ml-3">
+                        <p class="mb-0"><span class="text-muted">From:</span> me</p>
+                        <p class="mb-0"><span class="text-muted">To:</span>${sentmails[i].nom_ag} </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="body mb-2">
+            <p>${sentmails[i].content}</p>
+
+            </div>
+
+        </div>
+    </div>`;
+    $(".right").html(s);
+    }
+
+    
+}

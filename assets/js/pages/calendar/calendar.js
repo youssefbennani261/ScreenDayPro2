@@ -146,6 +146,7 @@ $(function() {
         },
 
         editable: true,
+        eventStartEditable:false,
 
         droppable: true,
 
@@ -153,6 +154,23 @@ $(function() {
 
         selectable: true,
         events:reservation,
+        eventClick: function(e) { 
+            let detail=JSON.parse(e.detail);
+            console.log(detail);
+            $("#defaultModal").modal('toggle');
+            $("#tableres").DataTable( {
+                data:detail,
+                columns: [
+                    { data: 'client' },
+                    { data: 'type' },
+                    { data: 'passport' }
+                ],
+                paging: false,
+                searching: false,
+                destroy: true
+            })
+            
+        },
         // events: [
 
         //     {
@@ -221,11 +239,12 @@ $(function() {
 
         },
 
-        select: function(start, end, allDay) { 
+        // select: function(start, end, allDay) { 
 
-            newEvent(start);
+        //     newEvent(start);
 
-        },
+        // },
+        
 
         // eventClick: function(calEvent, jsEvent, view) {
 
