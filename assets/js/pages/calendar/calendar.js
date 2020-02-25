@@ -146,8 +146,12 @@ $(function() {
         },
 
         editable: true,
+<<<<<<< HEAD
         eventStartEditable:false,
 
+=======
+eventStartEditable:false,
+>>>>>>> 673baf2e4c56e03210f959ccc6d6ded79ac2486d
         droppable: true,
 
         eventLimit: true, // allow "more" link when too many events
