@@ -146,7 +146,7 @@ $(function() {
         },
 
         editable: true,
-
+eventStartEditable:false,
         droppable: true,
 
         eventLimit: true, // allow "more" link when too many events

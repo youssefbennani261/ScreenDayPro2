@@ -23,7 +23,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
     <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
 
-<body class="theme-blush" onload="load()" >
+<body class="theme-blush"  >
     <!-- <?php session_start(); ?> -->
     <?php $path=$_SERVER["DOCUMENT_ROOT"]."/ScreenDayPro2/pages/"; include($path."menugauche.html");?>
     <!-- Page Loader -->
@@ -61,7 +61,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>Agences</h2>
+                    <h2>Ajouter Agence</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.php"><i class="zmdi zmdi-home"></i> Home</a></li>
                         <li class="breadcrumb-item active">Agence</li>
@@ -72,8 +72,8 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                 <div class="col-lg-5 col-md-6 col-sm-12">
                 <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i
                             class="zmdi zmdi-arrow-right"></i></button>
-                            <a class="btn btn-info btn-icon float-right " href="Ajouteragence.php"><i class="zmdi zmdi-hc-fw"></i>
-</a>
+                    <button class="btn btn-info btn-icon float-right " type="button"><i class="zmdi zmdi-collection-item"></i>
+</button>
                 </div>
             </div>
         </div>

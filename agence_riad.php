@@ -115,10 +115,10 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                     <thead>
                         <tr>
                             <th>Nom Agence</th>
-                            <th>Nom responsable</th>
                             <th>Date Debut </th>
                             <th>Date Fin</th>
                             <th>Prix</th>
+                            <th>Nom responsable</th>    
                             <th>Nombre Personnes</th>
                             
                             
