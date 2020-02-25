@@ -25,7 +25,7 @@ if(this.status==200 && this.readyState==4){
         var xhr=new XMLHttpRequest();
         xhr.onreadystatechange=function(){
             if(this.status==200 && this.readyState==4){
-                 var data=JSON.parse( this.response);
+                 var data=JSON.parse(this.response);
                data.forEach(bo)
                function bo(item,index){
               
