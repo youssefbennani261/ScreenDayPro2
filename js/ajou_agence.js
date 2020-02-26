@@ -101,7 +101,7 @@ function ajouteragence(){
      ajouter(data,email,pw);
     }
     }
-    
+    /////////////////////////////////
     
      function ajouter(data,email,pw){
         var xhr=new XMLHttpRequest();
