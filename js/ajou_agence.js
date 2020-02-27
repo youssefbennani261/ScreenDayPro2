@@ -113,7 +113,7 @@ function ajouteragence(){
                    alert("Email : "+email+" et  Mot de passe :"+pw);
               }
               }
-              xhr.open("POST","php/ajouagence.php",true);
+              xhr.open("POST","../php/ajouagence.php",true);
               xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
               xhr.send(data);
      }
@@ -137,7 +137,7 @@ function ajouteragence(){
     con.innerHTML=ch;
             }
             }
-            xhr.open("POST","php/ajouagence.php",true);
+            xhr.open("POST","../php/ajouagence.php",true);
             xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
             var data="op="+2;
             xhr.send(data);

@@ -12,19 +12,19 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
 <title>Profile</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <!-- Favicon-->
-<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
 <!-- Light Gallery Plugin Css -->
-<link rel="stylesheet" href="assets/plugins/light-gallery/css/lightgallery.css">
-<link rel="stylesheet" href="assets/plugins/fullcalendar/fullcalendar.min.css">
+<link rel="stylesheet" href="../assets/plugins/light-gallery/css/lightgallery.css">
+<link rel="stylesheet" href="../assets/plugins/fullcalendar/fullcalendar.min.css">
 <!-- Custom Css -->
-<link rel="stylesheet" href="assets/css/style.min.css">
+<link rel="stylesheet" href="../assets/css/style.min.css">
 </head>
 
 <body class="theme-blush"  onload="load1()" >
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">
-        <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/loader.svg" width="48" height="48" alt="Aero"></div>
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="../assets/images/loader.svg" width="48" height="48" alt="Aero"></div>
         <p>Please wait...</p>
     </div>
 </div>
@@ -138,15 +138,15 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
     </div>
 </section>
 <!-- Jquery Core Js --> 
-<script src="js/agence.js"></script>
-<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
-<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+<script src="../js/agence.js"></script>
+<script src="../assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+<script src="../assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
 
-<script src="assets/plugins/light-gallery/js/lightgallery-all.min.js"></script> <!-- Light Gallery Plugin Js --> 
-<script src="assets/bundles/fullcalendarscripts.bundle.js"></script><!--/ calender javascripts --> 
+<script src="../assets/plugins/light-gallery/js/lightgallery-all.min.js"></script> <!-- Light Gallery Plugin Js --> 
+<script src="../assets/bundles/fullcalendarscripts.bundle.js"></script><!--/ calender javascripts --> 
 
-<script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
-<script src="assets/js/pages/medias/image-gallery.js"></script>
-<script src="assets/js/pages/calendar/calendar.js"></script>
+<script src="../assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
+<script src="../assets/js/pages/medias/image-gallery.js"></script>
+<script src="../assets/js/pages/calendar/calendar.js"></script>
 </body>
 </html>

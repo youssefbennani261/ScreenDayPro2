@@ -9,15 +9,15 @@
 
 <title>Modification Profile </title>
 <link rel="icon" href="favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/plugins/dropify/css/dropify.min.css">
+<link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/plugins/dropify/css/dropify.min.css">
 <!-- Favicon-->
 <?php
 session_start();
 if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayPro2/sign-in.html");} ?>
-<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
 <!-- Custom Css -->
-<link rel="stylesheet" href="assets/css/style.min.css">
+<link rel="stylesheet" href="../assets/css/style.min.css">
 </head>
 
 <body class="theme-blush">
@@ -25,7 +25,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
     <div class="loader">
-        <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/loader.svg" width="48" height="48" alt="Aero"></div>
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="../assets/images/loader.svg" width="48" height="48" alt="Aero"></div>
         <p>Please wait...</p>
     </div>
 </div>
@@ -135,7 +135,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                         <li class="online">
                             <a href="javascript:void(0);">
                                 <div class="media">
-                                    <img class="media-object " src="assets/images/xs/avatar4.jpg" alt="">
+                                    <img class="media-object " src="../assets/images/xs/avatar4.jpg" alt="">
                                     <div class="media-body">
                                         <span class="name">Sophia <small class="float-right">11:00AM</small></span>
                                         <span class="message">There are many variations of passages of Lorem Ipsum available</span>
@@ -147,7 +147,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                         <li class="online">
                             <a href="javascript:void(0);">
                                 <div class="media">
-                                    <img class="media-object " src="assets/images/xs/avatar5.jpg" alt="">
+                                    <img class="media-object " src="../assets/images/xs/avatar5.jpg" alt="">
                                     <div class="media-body">
                                         <span class="name">Grayson <small class="float-right">11:30AM</small></span>
                                         <span class="message">All the Lorem Ipsum generators on the</span>
@@ -159,7 +159,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                         <li class="offline">
                             <a href="javascript:void(0);">
                                 <div class="media">
-                                    <img class="media-object " src="assets/images/xs/avatar2.jpg" alt="">
+                                    <img class="media-object " src="../assets/images/xs/avatar2.jpg" alt="">
                                     <div class="media-body">
                                         <span class="name">Isabella <small class="float-right">11:31AM</small></span>
                                         <span class="message">Contrary to popular belief, Lorem Ipsum</span>
@@ -171,7 +171,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                         <li class="me">
                             <a href="javascript:void(0);">
                                 <div class="media">
-                                    <img class="media-object " src="assets/images/xs/avatar1.jpg" alt="">
+                                    <img class="media-object " src="../assets/images/xs/avatar1.jpg" alt="">
                                     <div class="media-body">
                                         <span class="name">John <small class="float-right">05:00PM</small></span>
                                         <span class="message">It is a long established fact that a reader</span>
@@ -183,7 +183,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                         <li class="online">
                             <a href="javascript:void(0);">
                                 <div class="media">
-                                    <img class="media-object " src="assets/images/xs/avatar3.jpg" alt="">
+                                    <img class="media-object " src="../assets/images/xs/avatar3.jpg" alt="">
                                     <div class="media-body">
                                         <span class="name">Alexander <small class="float-right">06:08PM</small></span>
                                         <span class="message">Richard McClintock, a Latin professor</span>
@@ -314,15 +314,15 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
 </section>
 <!-- Jquery Core Js --> 
 
-<script src="js/jquery.min.js"></script>
-<script src="js/edit_profile.js"></script>
-<script src="js/main.js"></script>
-<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
-<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
- <script src="js/edit-profile.js"></script> <!-- modification profile -->
-<script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
-<script src="assets/plugins/dropify/js/dropify.min.js"></script>
-<script src="assets/js/pages/forms/dropify.js"></script>  
+<script src="../js/jquery.min.js"></script>
+<script src="../js/edit_profile.js"></script>
+<script src="../js/main.js"></script>
+<script src="../assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+<script src="../assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+ <script src="../js/edit-profile.js"></script> <!-- modification profile -->
+<script src="../assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
+<script src="../assets/plugins/dropify/js/dropify.min.js"></script>
+<script src="../assets/js/pages/forms/dropify.js"></script>  
       
 </body>
 </html>

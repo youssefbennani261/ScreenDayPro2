@@ -17,7 +17,7 @@ function changerPassword(){
   var user=document.getElementById("user").value;
   var pw=document.getElementById("pw").value;
   var pwafter=document.getElementById("pwafter").value;
-  xhr.open("POST","php/edit-profile.php",true);
+  xhr.open("POST","../php/edit-profile.php",true);
   xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
    var data="op="+op+"&user="+user+"&pw="+pw+"&pwafter="+pwafter;
    xhr.send(data);
@@ -46,7 +46,7 @@ function changerPassword(){
       var email=document.getElementById("email").value;
       var Detail=document.getElementById("Detail").value;
       var adresse=document.getElementById("adresse").value;
-      xhr.open("POST","php/edit-profile.php",true);
+      xhr.open("POST","../php/edit-profile.php",true);
       xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
        var data="op="+op+"&nomriad="+nom+"&Directeur="+directeur+"&email="+email+"&adresse="+adresse+"&Detail="+Detail;
        xhr.send(data);

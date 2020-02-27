@@ -19,7 +19,7 @@ $(document).on('click', '#sendfile', function(){
    {
     form_data.append("file", document.getElementById('fileup').files[0]);
     $.ajax({
-     url:"./php/uploadimg.php",
+     url:"../php/uploadimg.php",
      method:"POST",
      data: form_data,
      contentType: false,

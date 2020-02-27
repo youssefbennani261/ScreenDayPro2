@@ -1,5 +1,5 @@
 var reservation;
-$.get("php/riad.php",{op:2},function(data){
+$.get("../php/riad.php",{op:2},function(data){
     reservation=JSON.parse(data);
     console.log(reservation);
     $.each(reservation, function(index, event){
@@ -146,12 +146,8 @@ $(function() {
         },
 
         editable: true,
-<<<<<<< HEAD
         eventStartEditable:false,
 
-=======
-eventStartEditable:false,
->>>>>>> 673baf2e4c56e03210f959ccc6d6ded79ac2486d
         droppable: true,
 
         eventLimit: true, // allow "more" link when too many events

@@ -2,7 +2,7 @@ $("#singin").click(function(){
 
     $.post("php/login.php",{login:$("#email").val(),pwd:$("#pwd").val()},function(data){
         if(data=="1"){
-            window.location.href="index.php";
+            window.location.href="pages/index.php";
             
         }
 
@@ -10,8 +10,8 @@ $("#singin").click(function(){
         alert("Mot de passe Incorrect");
         })
 })
-if(window.location.pathname=="/ScreenDayPro2/index.php"){
-    $.get("php/riad.php",{op:1},function(data){
+if(window.location.pathname=="/ScreenDayPro2/pages/index.php"){
+    $.get("../php/riad.php",{op:1},function(data){
         var tab=JSON.parse(data);
         $("#nbrres").html(tab[0]["COUNT(Id_reservation)"]+" <small class='info'>ce mois </small>");
         $("#ca").html(eval(tab[1]["SUM(pr.Prix)"])+" Dh"+" <small class='info'>ce mois</small>");
@@ -49,7 +49,7 @@ return output;
 }
 function getdemandes(){
     $("#tab_demandes").empty();
-    $.get("php/riad.php",{op:3},function(data){
+    $.get("../php/riad.php",{op:3},function(data){
         demandes=JSON.parse(data);
         for(let i=0;i<demandes.length;i++){
             $("#tab_demandes").append("<tr><td style='display: table-cell'>"+demandes[i].nomagg+"</td><td style='display: table-cell'>"+demandes[i].respo+"</td><td style='display: table-cell'>"+demandes[i].datedeb+"</td><td style='display: table-cell'>"+demandes[i].datefin+"</td><td style='display: table-cell'>"+JSON.parse(demandes[i].detail).length+"</td><td><button class='btn btn-success accepte' data-toggle='modal' data-target='#defaultModal' id='"+i+"'>Accepter</button></td><td><button class='btn btn-danger refuse' id=d"+demandes[i].numdemande+" >Refuser</button></td></tr>");
@@ -57,7 +57,7 @@ function getdemandes(){
     })
 }
 
-if(window.location.pathname=="/ScreenDayPro2/demande.php"){
+if(window.location.pathname=="/ScreenDayPro2/pages/demande.php"){
     let count=0;
     var demandes;
     var chambres;
@@ -67,7 +67,7 @@ if(window.location.pathname=="/ScreenDayPro2/demande.php"){
         var reservation=[];
         
         let numaggence=demandes[e.target.id].Num_agence;
-        $.get("php/riad.php",{op:4,num_agence:numaggence},(data)=>{
+        $.get("../php/riad.php",{op:4,num_agence:numaggence},(data)=>{
              chambres=JSON.parse(data);
              console.log(chambres);
              let ind =$(this).attr('id');
@@ -106,7 +106,7 @@ if(window.location.pathname=="/ScreenDayPro2/demande.php"){
             var prix=JSON.stringify(getchambre_idprix());
             var iddemande=parseInt($("#iddem").val());
             var num_age=parseInt($("#numag").val());
-            $.get("php/riad.php",{op:5,prix:prix,demade:iddemande,num_agence:num_age},(data)=>{
+            $.get("../php/riad.php",{op:5,prix:prix,demade:iddemande,num_agence:num_age},(data)=>{
                 getdemandes();
             })
             $('#defaultModal').modal('toggle');
@@ -131,7 +131,7 @@ if(window.location.pathname=="/ScreenDayPro2/demande.php"){
                     text: 'La demande est supprimé!',
                     icon: 'success'
                   }).then(function() {
-                    $.get("php/riad.php",{op:6,demade:parseInt(e.currentTarget.id.substr(1,1))},()=>{
+                    $.get("../php/riad.php",{op:6,demade:parseInt(e.currentTarget.id.substr(1,1))},()=>{
                         getdemandes();
                     })
                   });
@@ -181,12 +181,12 @@ function validationinput(selector){
     }
     return state;
 }
-if(window.location.pathname=="/ScreenDayPro2/email.php"){
+if(window.location.pathname=="/ScreenDayPro2/pages/email.php"){
     let clone;
     let emails;
     let agences;
     let sentmails;
-    $.get("php/email.php",{op:1},(data)=>{
+    $.get("../php/email.php",{op:1},(data)=>{
         emails=JSON.parse(data);
         getemail();
     })
@@ -232,7 +232,7 @@ if(window.location.pathname=="/ScreenDayPro2/email.php"){
             var emailstoremove = $(".cbo:checked").map(function(){
                 return $(this).val();
               }).get();
-              $.post("php/email.php",{op:4,emails:JSON.stringify(emailstoremove)},(data)=>{
+              $.post("../php/email.php",{op:4,emails:JSON.stringify(emailstoremove)},(data)=>{
                  window.location.reload();
               })
         })
@@ -294,7 +294,7 @@ if(window.location.pathname=="/ScreenDayPro2/email.php"){
 
     
       $("#sendmsg").click(()=>{
-         $.post("php/email.php",{op:2,agence:parseInt($(".to").attr("id")),sujet:$(".sujet").val(),content:$('.summernote').summernote('code')},(data)=>{
+         $.post("../php/email.php",{op:2,agence:parseInt($(".to").attr("id")),sujet:$(".sujet").val(),content:$('.summernote').summernote('code')},(data)=>{
             $.notify({
                 message: "Email a été envoyé avec succes",
               },
@@ -307,7 +307,7 @@ if(window.location.pathname=="/ScreenDayPro2/email.php"){
 
     }
     function composemsg(){
-        $.get("php/email.php",{op:2},(data)=>{
+        $.get("../php/email.php",{op:2},(data)=>{
             agences=JSON.parse(data);
             let s = `<div class="inbox right">
             <div class="card">
@@ -337,7 +337,7 @@ if(window.location.pathname=="/ScreenDayPro2/email.php"){
             $("#agences").append(new Option(agences[i].Nom,agences[i].Num_agence));
         }
         $("#sendmsg").click(()=>{
-            $.post("php/email.php",{op:3,agence:$("#agences").val(),sujet:$(".sujet").val(),content:$('.summernote').summernote('code')},(data)=>{
+            $.post("../php/email.php",{op:3,agence:$("#agences").val(),sujet:$(".sujet").val(),content:$('.summernote').summernote('code')},(data)=>{
                 $.notify({
                     message: "Email a été envoyé avec succes",
                   },
@@ -354,7 +354,7 @@ if(window.location.pathname=="/ScreenDayPro2/email.php"){
     function getsentmsg(){
         $("#sent").addClass("active"); 
         $("#inbox").removeClass("active");       
-        $.get("php/email.php",{op:3},(data)=>{
+        $.get("../php/email.php",{op:3},(data)=>{
             sentmails=JSON.parse(data);
             let s=`<div class="table-responsive"><table class="table c_table inbox_table" id="emails">`;
             for(let i=0;i<sentmails.length;i++){

@@ -1,5 +1,5 @@
 var tab=[];
-if(window.location.pathname=="/ScreenDayPro2/profile.php"){
+if(window.location.pathname=="/ScreenDayPro2/pages/profile.php"){
   var xhr=new XMLHttpRequest();
    xhr.onreadystatechange=function(){
        if(this.status==200 && this.readyState==4){
@@ -17,7 +17,7 @@ if(window.location.pathname=="/ScreenDayPro2/profile.php"){
 
    }
    
-xhr.open("GET","php/images.php",true)
+xhr.open("GET","../php/images.php",true)
 xhr.send();
 
 
@@ -41,7 +41,7 @@ $(document).on('click', '#sendfile', function(){
    {
     form_data.append("file", document.getElementById('fileup').files[0]);
     $.ajax({
-     url:"./php/upload.php",
+     url:"../php/upload.php",
      method:"POST",
      data: form_data,
      contentType: false,

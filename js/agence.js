@@ -15,7 +15,7 @@ if(this.status==200 && this.readyState==4){
         
 }
 }
-    xhr.open("GET","php/listagence.php",true);
+    xhr.open("GET","../php/listagence.php",true);
     xhr.send();
 
 }
@@ -39,7 +39,7 @@ sessionStorage['list']=t;
             }
         }
         var data="op="+1+"&id="+id;
-        xhr.open("POST","php/riad_reservation.php",true);
+        xhr.open("POST","../php/riad_reservation.php",true);
         xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     
         xhr.send(data);
@@ -69,7 +69,7 @@ sessionStorage['list']=t;
             }
         }
         var data="op="+2+"&id="+localStorage['id'];
-        xhr.open("POST","php/riad_reservation.php",true);
+        xhr.open("POST","../php/riad_reservation.php",true);
         xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
     
         xhr.send(data);

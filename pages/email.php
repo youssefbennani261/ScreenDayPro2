@@ -11,17 +11,17 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
     <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
     <title> Home</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/plugins/fullcalendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css" />
-    <link rel="stylesheet" href="assets/plugins/charts-c3/plugin.css" />
-    <link rel="stylesheet" href="assets/plugins/bootstrap-select/css/bootstrap-select.css" />
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/plugins/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="../assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css" />
+    <link rel="stylesheet" href="../assets/plugins/charts-c3/plugin.css" />
+    <link rel="stylesheet" href="../assets/plugins/bootstrap-select/css/bootstrap-select.css" />
 
-    <link rel="stylesheet" href="assets/plugins/morrisjs/morris.min.css" />
-    <link rel="stylesheet" href="assets/plugins/summernote/dist/summernote.css"/>
+    <link rel="stylesheet" href="../assets/plugins/morrisjs/morris.min.css" />
+    <link rel="stylesheet" href="../assets/plugins/summernote/dist/summernote.css"/>
 
     <!-- Custom Css -->
-    <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="../assets/css/style.min.css">
 </head>
 
 <body class="theme-blush" >
@@ -30,7 +30,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
-            <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/loader.svg" width="48" height="48"
+            <div class="m-t-30"><img class="zmdi-hc-spin" src="../assets/images/loader.svg" width="48" height="48"
                     alt="Aero"></div>
             <p>Please wait...</p>
         </div>
@@ -107,7 +107,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                                             </div>
                                         </td>
                                         <td class="starred "><a href="javascript:void(0);"><i class="zmdi zmdi-star"></i></a></td>
-                                        <td class="u_image"><img src="assets/images/xs/avatar1.jpg" alt="user" class="rounded" width="30"></td>
+                                        <td class="u_image"><img src="../assets/images/xs/avatar1.jpg" alt="user" class="rounded" width="30"></td>
                                         <td class="u_name"><h5 class="font-15 mt-0 mb-0">Maryam Amiri</h6></td>
                                         <td class="max_ellipsis">
                                             <a class="link" href="mail-single.html">
@@ -133,22 +133,22 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
    
     <!-- Jquery Core Js -->
     <script src="js/jquery.min.js"></script>
-    <script src="assets/bundles/libscripts.bundle.js"></script>
+    <script src="../assets/bundles/libscripts.bundle.js"></script>
     <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
-    <script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
+    <script src="../assets/bundles/vendorscripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
 
-    <script src="assets/bundles/c3.bundle.js"></script>
-    <script src="assets/bundles/mainscripts.bundle.js"></script>
+    <script src="../assets/bundles/c3.bundle.js"></script>
+    <script src="../assets/bundles/mainscripts.bundle.js"></script>
 
 
-    <script src="assets/js/pages/index.js"></script>
-    <script src="assets/plugins/summernote/dist/summernote.js"></script>
-    <script src="assets/plugins/momentjs/moment.js"></script>
-    <script src="js/main.js"></script>
-    <script src="assets/plugins/bootstrap-notify/bootstrap-notify.js"></script> <!-- Bootstrap Notify Plugin Js -->
-    <script src="assets/js/pages/ui/notifications.js"></script> <!-- Custom Js -->
+    <script src="../assets/js/pages/index.js"></script>
+    <script src="../assets/plugins/summernote/dist/summernote.js"></script>
+    <script src="../assets/plugins/momentjs/moment.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../assets/plugins/bootstrap-notify/bootstrap-notify.js"></script> <!-- Bootstrap Notify Plugin Js -->
+    <script src="../assets/js/pages/ui/notifications.js"></script> <!-- Custom Js -->
 
-    <script src="assets/bundles/fullcalendarscripts.bundle.js"></script>
+    <script src="../assets/bundles/fullcalendarscripts.bundle.js"></script>
 </body>
 
 </html>
