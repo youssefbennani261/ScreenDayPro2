@@ -294,7 +294,7 @@ if(window.location.pathname=="/ScreenDayPro2/email.php"){
 
     
       $("#sendmsg").click(()=>{
-         $.post("php/email.php",{op:2,agence:parseInt($(".to").attr("id")),sujet:$(".sujet").val(),content:$('.summernote').summernote('code')},(data)=>{
+         $.post("php/email.php",{op:3,agence:parseInt($(".to").attr("id")),sujet:$(".sujet").val(),content:$('.summernote').summernote('code')},(data)=>{
             $.notify({
                 message: "Email a été envoyé avec succes",
               },

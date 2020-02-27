@@ -34,7 +34,7 @@
     echo json_encode($tab);
   }
   if($op2==3){
-    $sql="insert into emails values (0,'".$agg."','{$_SESSION["riad"][0]}','riad','".$sujet."','".$content."')";
+    $sql="insert into emails values (0,'".$agg."','{$_SESSION["riad"][0]}','riad','".$sujet."','".$content."',CURRENT_TIME)";
     $req=mysqli_query($con,$sql);
   }
   if($op==3){
