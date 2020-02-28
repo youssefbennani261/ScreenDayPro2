@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayPro2/sign-in.html");} ?>
+if(!isset($_SESSION["agence"])){header("Location: http://localhost:8080/ScreenDayPro2/sign-in.html");} ?>
 <!doctype html>
 <html class="no-js " lang="en">
 
@@ -26,7 +26,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
 
 <body class="theme-blush" >
     <!-- <?php session_start(); ?> -->
-    <?php $path=$_SERVER["DOCUMENT_ROOT"]."/ScreenDayPro2/pages/"; include($path."menugauche.html");?>
+    <?php $path=$_SERVER["DOCUMENT_ROOT"]."/ScreenDayPro2/pages/"; include($path."menugauche_agence.html");?>
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
@@ -49,7 +49,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
     </div>
 
     <!-- Right Icon menu Sidebar -->
-    <?php $path=$_SERVER["DOCUMENT_ROOT"]."/ScreenDayPro2/pages/"; include($path."menudroit.html");?>
+    <?php $path=$_SERVER["DOCUMENT_ROOT"]."/ScreenDayPro2/pages/"; include($path."menudroit_agence.html");?>
 
 
     
