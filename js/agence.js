@@ -79,5 +79,36 @@ sessionStorage['list']=t;
       }
 
 
+   function cherche(){
+    
+    var xhr=new XMLHttpRequest();
+    xhr.onreadystatechange=function(){
+        if(this.status==200 && this.readyState==4){
+         t="";
+             var data=JSON.parse(this.response);
+             var sum=0;
+           data.forEach(bo)
+           function bo(item,index){
+          
+             t+="<tr><td style='display: table-cell'>"+ item['nom']+" </td><td style='display: table-cell'>"+ item['dd']+"</td><td style='display: table-cell'>"+item['df']+"</td><td style='display: table-cell'>"+item['prix']+"</td><td style='display: table-cell'>"+item['nrespo']+"</td><td style='display: table-cell'>"+item['nbr']+"</td></tr>";
+            sum+=parseInt(item['prix']);
+             
+            }
+            document.getElementById('tab_demande').innerHTML=t;
+ document.getElementById("total").value="TOTAL : "+sum+" DH";
+
+        }
+    }
+    var data="op="+3+"&id="+localStorage['id']+"&date="+document.getElementById("date").value;
+    xhr.open("POST","../php/riad_reservation.php",true);
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+  
+    xhr.send(data);
+
+
+  }
+
+
+
 
 

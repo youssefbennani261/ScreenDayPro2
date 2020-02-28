@@ -81,7 +81,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
             <div class="table-responsive social_media_table">
                 <table class="table table-hover c_table">
                     <thead>
-                        <tr>
+                        <tr style="background-color:gainsboro">
                             <th>Nom Agence</th>
                             <th>Directeur</th>
                             <th>Adresse</th>
