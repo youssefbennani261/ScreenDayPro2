@@ -147,7 +147,7 @@ function getchambre_idprix(){
          data.push({num_chambre:ch.num_chambre,id_Prix:ch.id_Prix});
     }
 
-    return data;
+    return data;   
 }
 function validationres(){
     let ind=[];
