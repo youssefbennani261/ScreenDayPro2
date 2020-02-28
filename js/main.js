@@ -5,6 +5,9 @@ $("#singin").click(function(){
             window.location.href="pages/index.php";
             
         }
+        else if(data=="2"){
+            window.location.href="pages/index_agence.php";
+        }
 
         else
         alert("Mot de passe Incorrect");
