@@ -134,7 +134,7 @@ if(window.location.pathname=="/ScreenDayPro2/pages/demande.php"){
                     text: 'La demande est supprimé!',
                     icon: 'success'
                   }).then(function() {
-                    $.get("../php/riad.php",{op:6,demade:parseInt(e.currentTarget.id.substr(1,1))},()=>{
+                    $.get("../php/riad.php",{op:6,demade:parseInt(e.currentTarget.id.match(/\d+/)[0])},()=>{
                         getdemandes();
                     })
                   });
@@ -193,6 +193,7 @@ if(window.location.pathname=="/ScreenDayPro2/pages/email.php"){
         emails=JSON.parse(data);
         getemail();
     })
+
     // function returntomails(){
     //     if(clone)
     //     $(".right").replaceWith(clone);
