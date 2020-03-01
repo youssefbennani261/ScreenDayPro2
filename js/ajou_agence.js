@@ -5,7 +5,7 @@ function ajouteragence(){
     ////////////////////////////////////////////////////
     var email;
     var pw;
-    var chain= new RegExp("^[a-zA-Z]*$");
+    var chain= new RegExp("#^[a-z]+[ \-']?[[a-z]+[ \-']?]*[a-z]+$#");
     var tel= new RegExp("[0-9]{10,15}");
     var Email1 = new RegExp("[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+");
     var bdinfo =document.querySelectorAll(".info");

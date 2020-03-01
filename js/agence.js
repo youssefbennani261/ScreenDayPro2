@@ -85,9 +85,11 @@ sessionStorage['list']=t;
     xhr.onreadystatechange=function(){
         if(this.status==200 && this.readyState==4){
          t="";
+          if(this.response!=""){
              var data=JSON.parse(this.response);
              var sum=0;
-           data.forEach(bo)
+            
+                 data.forEach(bo)
            function bo(item,index){
           
              t+="<tr><td style='display: table-cell'>"+ item['nom']+" </td><td style='display: table-cell'>"+ item['dd']+"</td><td style='display: table-cell'>"+item['df']+"</td><td style='display: table-cell'>"+item['prix']+"</td><td style='display: table-cell'>"+item['nrespo']+"</td><td style='display: table-cell'>"+item['nbr']+"</td></tr>";
@@ -95,7 +97,11 @@ sessionStorage['list']=t;
              
             }
             document.getElementById('tab_demande').innerHTML=t;
- document.getElementById("total").value="TOTAL : "+sum+" DH";
+ document.getElementById("total").innerText="TOTAL : "+sum+" DH";
+             }else{
+              document.getElementById('tab_demande').innerHTML=t;
+             }
+         
 
         }
     }
