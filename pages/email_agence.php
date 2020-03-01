@@ -144,7 +144,7 @@ if(!isset($_SESSION["agence"])){header("Location: http://localhost:8080/ScreenDa
     <script src="../assets/js/pages/index.js"></script>
     <script src="../assets/plugins/summernote/dist/summernote.js"></script>
     <script src="../assets/plugins/momentjs/moment.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="../js/main_agence.js"></script>
     <script src="../assets/plugins/bootstrap-notify/bootstrap-notify.js"></script> <!-- Bootstrap Notify Plugin Js -->
     <script src="../assets/js/pages/ui/notifications.js"></script> <!-- Custom Js -->
 

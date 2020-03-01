@@ -643,6 +643,9 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                                 <th>Passport</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            
+                        </tbody>
                     </table>
 
                 </div>

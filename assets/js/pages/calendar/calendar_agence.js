@@ -196,8 +196,12 @@ $(function() {
         }
             }
 
-        }
-          ,
+        },
+        viewRender: function (view, element) {
+            $.each(reservation, function(index, event){
+   $('#calendar').fullCalendar('renderEvent', event);
+});
+}
         
         
     });
