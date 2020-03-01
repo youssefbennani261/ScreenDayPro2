@@ -109,9 +109,12 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                             <h2><strong> List </strong> Reservation D'agence</h2>
                         </div>
                         <div class="body ">
-                        <div class="col-lg-4 col-md-12">
-                                    <div class="form-group">
-                                        <input type="date"  oninput="cherche()" style="background-color:beige" class="form-control" id="date" >
+                     
+                        <div class="col-lg-4 col-md-12 ">
+                                    <div class="form-group ">
+                                
+                                        <input type="date"  oninput="cherche()" style="background-color:beige" class="form-control " id="date" >
+                                     
                                     </div>
                                 </div>
                             <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
@@ -136,7 +139,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                 </table>   
                 <div class="col-lg-4 col-md-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control ml-3" style="background-color:beige" id="total" placeholder="TOTAL : 00 DH">
+                                        <label class="form-control ml-3" style="background-color:beige" id="total">TOTAL : 00 DH</label>
                                     </div>
                                 </div>   
                         </div>
