@@ -58,7 +58,7 @@ if(!isset($_SESSION["agence"])){header("Location: http://localhost:8080/ScreenDa
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <h2>Profile</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.php"><i class="zmdi zmdi-home"></i> Riad </a></li>
+                        <li class="breadcrumb-item"><a href="index_agence.php"><i class="zmdi zmdi-home"></i> Agence </a></li>
                         <li class="breadcrumb-item">Pages</li>
                         <li class="breadcrumb-item active">Profile</li>
                     </ul>
@@ -145,27 +145,7 @@ if(!isset($_SESSION["agence"])){header("Location: http://localhost:8080/ScreenDa
                             <div id="calendar"></div>
                         </div>
                     </div> -->
-                    <div class="card">
-                        <div class="header">
-                            <h2><strong> Riad </strong> Gallery</h2>
-                        </div>
-                        <div class="body clearfix">
-                            <p>Tous les Photos <a href="profile.php" target="_blank"><?php  echo $_SESSION['riad'][1] ?></a></p>
-                            <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
-                                <!-- <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/1.jpg"> <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/1.jpg" alt=""> </a> </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/2.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/2.jpg" alt=""> </a> </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/3.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/3.jpg" alt=""> </a> </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/4.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/4.jpg" alt=""> </a> </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/5.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/5.jpg" alt=""> </a> </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/6.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/6.jpg" alt=""> </a> </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/7.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/7.jpg" alt=""> </a> </div>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 m-b-30"> <a href="assets/images/image-gallery/8.jpg" > <img class="img-fluid img-thumbnail" src="assets/images/image-gallery/8.jpg" alt=""> </a> </div>                                 -->
-                            </div>
-                            <input type='file' class='dropify' id='fileup'/><br><br>
-                            <button type="button" class='btn btn-primary float-right' id='sendfile'>Upload</button>
-                            
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
