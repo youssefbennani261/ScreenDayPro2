@@ -146,8 +146,15 @@ $(function() {
             })
 
             $("#send").click(()=>{
-                if(verificationdemande()==true)
-                alert("error");
+                if(verificationdemande()==true || $("#respo").html()=="")
+                {
+                    $.notify({
+                        message: "Remplir tous les champs svp",
+                      },
+                      {
+                            type: 'danger'
+                        });
+                    }
                 else{
                 for(let i=0;i<parseInt($("#nbrper").val());i++){
                     demande.push({client:$(".nom")[i].value,type:$(".type")[i].value,passport:$(".cin")[i].value})
@@ -206,8 +213,14 @@ $(function() {
                 }
             })
             $("#send").click(()=>{
-                if(verificationdemande()==true)
-                alert("error");
+                if(verificationdemande()==true || $("#respo").html()==""){
+                $.notify({
+                    message: "Remplir tous les champs svp",
+                  },
+                  {
+                        type: 'danger'
+                    });
+                }
                 else{
                 for(let i=0;i<parseInt($("#nbrper").val());i++){
                     demande.push({client:$(".nom")[i].value,type:$(".type")[i].value,passport:$(".cin")[i].value})

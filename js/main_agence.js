@@ -19,6 +19,7 @@ if(window.location.pathname=="/ScreenDayPro2/pages/email_agence.php"){
     let sentmails;
     $.get("../php/email.php",{op:1},(data)=>{
         emails=JSON.parse(data);
+        console.log(emails);
         getemail();
     })
     function getemail(){

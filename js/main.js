@@ -1,3 +1,23 @@
+function getNotification(){
+    $.get("../php/riad.php",{op:8},function(data){ 
+        let tab=JSON.parse(data);
+        console.log(tab);
+        let s="";
+        for(let i=0;i<tab.length;i++){
+            s+=`<li>
+            <a href="http://localhost:8080/ScreenDayPro2/pages/demande.php">
+                <div class="icon-circle bg-blue"><i class="zmdi zmdi-account"></i></div>
+                <div class="menu-info">
+                    <h4>${parseInt(tab[i].nbr)>1 ? `${tab[i].nbr} Nouvelles demande` :`${tab[i].nbr} Nouvelle demandes`}</h4>
+                    <p>${tab[i].nom}</p>
+                </div>
+            </a>
+        </li>`;
+        }
+        
+        $("#noti").html(s);
+    })
+}
 $("#singin").click(function(){
 
     $.post("php/login.php",{login:$("#email").val(),pwd:$("#pwd").val()},function(data){
@@ -36,6 +56,7 @@ if(window.location.pathname=="/ScreenDayPro2/pages/index.php"){
         $("#nbr11").html('<div class="progress-bar l-green" role="progressbar" aria-valuenow="'+tab[5]["COUNT(num_chambre)"]+'" aria-valuemin="0" aria-valuemax="'+tab[6]["COUNT(num_chambre)"]+'" style="width: '+tab[5]["COUNT(num_chambre)"]*100/tab[6]["COUNT(num_chambre)"]+'%;"></div>');
 
     })
+
 }
 // pour calculer pourcetage de difference entre ce mois et le dernier mois
 function increasedecrease(thismonth,lastmonth){
@@ -64,7 +85,7 @@ if(window.location.pathname=="/ScreenDayPro2/pages/demande.php"){
     let count=0;
     var demandes;
     var chambres;
-
+    getNotification();
     getdemandes();
     $("#tab_demandes").on('click','.accepte',function(e){
         var reservation=[];
@@ -185,6 +206,7 @@ function validationinput(selector){
     return state;
 }
 if(window.location.pathname=="/ScreenDayPro2/pages/email.php"){
+    getNotification();
     let clone;
     let emails;
     let agences;
