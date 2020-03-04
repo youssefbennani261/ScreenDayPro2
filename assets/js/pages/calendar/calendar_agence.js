@@ -1,5 +1,29 @@
 var reservation;
+function verificationdemande(){
+        let state;
+     let tab=[];
+    // tab=tab.concat(document.querySelectorAll(".nom"),document.querySelectorAll(".type"),document.querySelectorAll(".cin"));
+    for(let i=0;i<parseInt($("#nbrper").val());i++){
+        if($(".nom")[i].value==""){
+        tab.push($(".nom")[i]);
+        $(".nom")[i].classList.add("border-danger");
+        }
+        if($(".type")[i].value==""){
+        tab.push($(".type")[i]);
+        $(".type")[i].classList.add("border-danger");
+        }
+        if($(".cin")[i].value==""){
+        tab.push($(".cin")[i]);
+        $(".cin")[i].classList.add("border-danger");
+        }
+    }
 
+    if(tab.length==0)state=false 
+    else{
+    state=true;
+    }
+    return state;
+}
 $.get("../php/agence_agence.php",{op:1},function(data){
     reservation=JSON.parse(data);
     console.log(reservation);
@@ -85,7 +109,7 @@ $(function() {
             if(e.target.colSpan==1){
                 if(startDate.format()<current ){
                     $.notify({
-                        message: "Date Invalid "                        ,
+                        message: "Date Invalid ",
                       },
                       {
                             type: 'danger'
@@ -122,6 +146,16 @@ $(function() {
             })
 
             $("#send").click(()=>{
+                if(verificationdemande()==true || $("#respo").html()=="")
+                {
+                    $.notify({
+                        message: "Remplir tous les champs svp",
+                      },
+                      {
+                            type: 'danger'
+                        });
+                    }
+                else{
                 for(let i=0;i<parseInt($("#nbrper").val());i++){
                     demande.push({client:$(".nom")[i].value,type:$(".type")[i].value,passport:$(".cin")[i].value})
                 }
@@ -134,7 +168,7 @@ $(function() {
                             type: 'success'
                         });
                 })
-
+            }
             })
         }
             }
@@ -179,6 +213,15 @@ $(function() {
                 }
             })
             $("#send").click(()=>{
+                if(verificationdemande()==true || $("#respo").html()==""){
+                $.notify({
+                    message: "Remplir tous les champs svp",
+                  },
+                  {
+                        type: 'danger'
+                    });
+                }
+                else{
                 for(let i=0;i<parseInt($("#nbrper").val());i++){
                     demande.push({client:$(".nom")[i].value,type:$(".type")[i].value,passport:$(".cin")[i].value})
                 }
@@ -191,6 +234,7 @@ $(function() {
                             type: 'success'
                         });
                 })
+            }
 
             })
         }

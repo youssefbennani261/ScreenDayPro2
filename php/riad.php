@@ -100,6 +100,13 @@ if($op==7){
     }
     echo json_encode($tab);
 }
+if($op==8){
+    $req=mysqli_query($con,"select count(Num_demande),Nom from demande d JOIN agence a on a.Num_agence=d.Num_agence where vérifié=0 and d.num_riad='{$_SESSION["riad"][0]}'");
+    while($row=$req->fetch_array()){
+        $tab[]=array("nbr"=>$row[0],"nom"=>$row[1]);
+    }
+   echo json_encode($tab);
+}
 mysqli_close($con);
 
 ?>
