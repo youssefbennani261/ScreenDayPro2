@@ -114,7 +114,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                                     <div class="form-group ">
                                 
                                         <input type="date"  oninput="cherche()" style="background-color:beige" class="form-control " id="date" >
-                                     
+                                      
                                     </div>
                                 </div>
                             <div id="aniimated-thumbnials" class="list-unstyled row clearfix">

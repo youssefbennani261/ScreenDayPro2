@@ -132,6 +132,7 @@ if(!isset($_SESSION["agence"])){header("Location: http://localhost:8080/ScreenDa
                                 <div class="col-md-12">
                                     <button class="btn btn-primary" onclick="saveinfo()">Save Changes</button>
                                 </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -143,7 +144,7 @@ if(!isset($_SESSION["agence"])){header("Location: http://localhost:8080/ScreenDa
                             <div class="row">
                                 <div class="col-lg-4 col-md-12">
                                     <div class="form-group">
-                                        <input type="text"id="user" class="form-control" placeholder="Username">
+                                        <input type="text" id="user" class="form-control" placeholder="Username">
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-12">
@@ -151,12 +152,6 @@ if(!isset($_SESSION["agence"])){header("Location: http://localhost:8080/ScreenDa
                                         <input type="password" id="pw" class="form-control" placeholder="Current Password">
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="form-group">
-                                        <input type="password" id="pwafter" class="form-control" placeholder="New Password">
-                                    </div>
-                                </div>
-
                                 <div class="col-12">
                                     <button class="btn btn-info" onclick="chengerpassword()">Envoyer demande changer </button>
                                 </div>                                
@@ -180,6 +175,7 @@ if(!isset($_SESSION["agence"])){header("Location: http://localhost:8080/ScreenDa
 <script src="../assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
 <script src="../assets/plugins/dropify/js/dropify.min.js"></script>
 <script src="../assets/js/pages/forms/dropify.js"></script>  
-      
+<script src="../assets/js/pages/ui/notifications.js"></script> <!-- Custom Js -->
+
 </body>
 </html>

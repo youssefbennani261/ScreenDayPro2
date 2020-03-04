@@ -30,7 +30,7 @@ if($op2==2){
     $mail->SMTPSecure='tls';
     $mail->Username='';
     $mail->Password='';
-    $mail->setFrom('agence_amal@gmail.com','moe');
+    $mail->setFrom('agence_amal@gmail.com','amal' );
     $mail->addAddress($rslt["email"]);
     $mail->addReplyTo('');
     $mail->isHTML(true);

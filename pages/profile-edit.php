@@ -295,11 +295,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                                         <input type="password" id="pw" class="form-control" placeholder="Current Password">
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="form-group">
-                                        <input type="password"  id="pwafter" class="form-control" placeholder="New Password">
-                                    </div>
-                                </div>
+                               
                                 <div class="col-12">
                                     <button class="btn btn-info" onclick="changerPassword()">Save Changes</button>
                                 </div>                                
@@ -316,13 +312,18 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
 
 <script src="../js/jquery.min.js"></script>
 <script src="../js/edit_profile.js"></script>
-<script src="../js/main.js"></script>
 <script src="../assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
 <script src="../assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
  <script src="../js/edit-profile.js"></script> <!-- modification profile -->
 <script src="../assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
 <script src="../assets/plugins/dropify/js/dropify.min.js"></script>
 <script src="../assets/js/pages/forms/dropify.js"></script>  
-      
+<script src="../assets/js/pages/ui/notifications.js"></script> <!-- Custom Js -->
+<script src="../assets/js/pages/ui/notifications.js"></script> <!-- Custom Js -->
+<script src="../assets/plugins/bootstrap-notify/bootstrap-notify.js"></script> <!-- Bootstrap Notify Plugin Js -->
+
+
+
+
 </body>
 </html>

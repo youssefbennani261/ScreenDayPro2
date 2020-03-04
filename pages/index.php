@@ -268,6 +268,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
     <!-- Left Sidebar -->
 
     <?php $path=$_SERVER["DOCUMENT_ROOT"]."/ScreenDayPro2/pages/"; include($path."menudroit.html");?>
+    
     <!-- Right Sidebar -->
     <aside id="rightsidebar" class="right-sidebar">
         <ul class="nav nav-tabs sm">

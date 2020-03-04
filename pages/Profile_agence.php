@@ -71,14 +71,14 @@ if(!isset($_SESSION["agence"])){header("Location: http://localhost:8080/ScreenDa
             </div>
         </div> 
         <div class="container-fluid">
-            <div class="row clearfix">
-                <div class="col-lg-4 col-md-12">
-                    <div class="card mcard_3">
-                        <div class="body">
+            <div class="row ">
+                <div class="col-lg-4 col-md-12  mx-auto">
+                    <div class="card mcard_3 ">
+                        <div class="body ">
                             <a href="profile_agence.php"><img src=<?php echo $_SESSION['agence'][5]?> class="rounded-circle shadow " alt="profile-image"></a>
                             <h4 class="m-t-10"><?php echo $_SESSION['agence'][1]?></h4>                            
-                            <div class="row">
-                                <div class="col-12">
+                            <div class="row ">
+                                <div class="col-12 ">
                                     <!-- <ul class="social-links list-unstyled">
                                         <li><a title="facebook" href="javascript:void(0);"><i class="zmdi zmdi-facebook"></i></a></li>
                                         <li><a title="twitter" href="javascript:void(0);"><i class="zmdi zmdi-twitter"></i></a></li>
@@ -101,8 +101,8 @@ if(!isset($_SESSION["agence"])){header("Location: http://localhost:8080/ScreenDa
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="body">
+                    <div class="card  ">
+                        <div class="body ">
                             <small class="text-muted">Email address: </small>
                             <p><?php echo $_SESSION['agence'][6]?></p>
                             <hr>
@@ -139,14 +139,7 @@ if(!isset($_SESSION["agence"])){header("Location: http://localhost:8080/ScreenDa
                         </div>
                     </div>                    
                 </div>
-                <div class="col-lg-8 col-md-12">
-                    <!-- <div class="card">
-                        <div class="body">
-                            <div id="calendar"></div>
-                        </div>
-                    </div> -->
-                   
-                </div>
+                
             </div>
         </div>
     </div>
