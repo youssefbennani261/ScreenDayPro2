@@ -1,4 +1,8 @@
 var tab=[];
+$("#demandes").removeClass("active open");
+$("#dashboard").removeClass("active open");
+$("#messagerie").removeClass("active open");
+$("#profil").addClass("active open");
 if(window.location.pathname=="/ScreenDayPro2/pages/profile.php"){
   var xhr=new XMLHttpRequest();
    xhr.onreadystatechange=function(){

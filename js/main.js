@@ -34,6 +34,11 @@ $("#singin").click(function(){
         })
 })
 if(window.location.pathname=="/ScreenDayPro2/pages/index.php"){
+$("#demandes").removeClass("active open");
+$("#dashboard").addClass("active open");
+$("#messagerie").removeClass("active open");
+$("#profil").removeClass("active open");
+$("#agences").removeClass("active open");
     $.get("../php/riad.php",{op:1},function(data){
         var tab=JSON.parse(data);
         $("#nbrres").html(tab[0]["COUNT(Id_reservation)"]+" <small class='info'>ce mois </small>");
@@ -82,6 +87,11 @@ function getdemandes(){
 }
 
 if(window.location.pathname=="/ScreenDayPro2/pages/demande.php"){
+    $("#demandes").addClass("active open");
+$("#dashboard").removeClass("active open");
+$("#messagerie").removeClass("active open");
+$("#profil").removeClass("active open");
+$("#agences").removeClass("active open");
     let count=0;
     var demandes;
     var chambres;
@@ -206,6 +216,11 @@ function validationinput(selector){
     return state;
 }
 if(window.location.pathname=="/ScreenDayPro2/pages/email.php"){
+    $("#demandes").removeClass("active open");
+    $("#dashboard").removeClass("active open");
+    $("#messagerie").addClass("active open");
+    $("#profil").removeClass("active open");
+    $("#agences").removeClass("active open");
     getNotification();
     let clone;
     let emails;
