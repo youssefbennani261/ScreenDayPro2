@@ -1,6 +1,11 @@
  var t="";
 function load()
 {
+  $("#demandes").removeClass("active open");
+  $("#dashboard").removeClass("active open");
+  $("#messagerie").removeClass("active open");
+  $("#profil").removeClass("active open");
+  $("#agences").addClass("active open");
 var xhr=new XMLHttpRequest();
 xhr.onreadystatechange=function(){
 if(this.status==200 && this.readyState==4){

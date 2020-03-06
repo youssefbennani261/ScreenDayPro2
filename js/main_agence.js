@@ -1,4 +1,8 @@
 if(window.location.pathname=="/ScreenDayPro2/pages/demandes_agence.php"){
+    $("#demandes").addClass("active open");
+    $("#dashboard").removeClass("active open");
+    $("#messagerie").removeClass("active open");
+    $("#profil").removeClass("active open");
     let demandes;
     $.get("../php/agence_agence.php",{op:3},(data)=>{
         demandes=JSON.parse(data);
@@ -13,6 +17,10 @@ if(window.location.pathname=="/ScreenDayPro2/pages/demandes_agence.php"){
         
     }
 if(window.location.pathname=="/ScreenDayPro2/pages/email_agence.php"){
+    $("#demandes").removeClass("active open");
+    $("#dashboard").removeClass("active open");
+    $("#messagerie").addClass("active open");
+    $("#profil").removeClass("active open");
     let clone;
     let emails;
     let agences;
