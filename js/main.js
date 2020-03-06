@@ -18,6 +18,7 @@ function getNotification(){
         $("#noti").html(s);
     })
 }
+getNotification();
 $("#singin").click(function(){
 
     $.post("php/login.php",{login:$("#email").val(),pwd:$("#pwd").val()},function(data){
