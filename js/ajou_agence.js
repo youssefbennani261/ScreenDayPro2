@@ -5,7 +5,7 @@ function ajouteragence(){
     ////////////////////////////////////////////////////
     var email;
     var pw;
-    var chain= new RegExp("#^[a-z]+[ \-']?[[a-z]+[ \-']?]*[a-z]+$#");
+ 
     var tel= new RegExp("[0-9]{10,15}");
     var Email1 = new RegExp("[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+");
     var bdinfo =document.querySelectorAll(".info");
@@ -45,7 +45,7 @@ function ajouteragence(){
                     bdinfo[i].style.border=" 2px solid red";
                 }
          }else {
-        if(chain.test(bdinfo[i].test) && bdinfo[i].value!="")
+        if( bdinfo[i].value!="")
         {
                 ++cas;
                  data+="&"+bdinfo[i].id+"="+bdinfo[i].value;
@@ -56,37 +56,7 @@ function ajouteragence(){
          }
           
       }
-    for(i=0;i<bdsuc.length;i++)
-    {
-        if(bdsuc[i].id=="pw" ){
-            if(bdsuc[i].value!=""){
-                ++cas;
-                bdsuc[i].style.border="#CCD4DA solid 1px";
-            }else{
-                bdsuc[i].style.border=" 2px solid red";
-            }
-        } else if(bdsuc[i].id=="pwconferm" && bdsuc[i].value!="" ){
-            if(bdsuc[i].value==bdsuc[i-1].value){
-                ++cas;
-                pw=bdsuc[i].value;
-                data+="&motdepasse="+bdsuc[i].value;
-                bdsuc[i].style.border="#CCD4DA solid 1px";
-            }else{
-                bdsuc[i].style.border=" 2px solid red";
-            }
-        }else
-        {
-            if(bdsuc[i].value!=""){
-                cas++;
-                data+="&login="+bdsuc[i].value;
-                bdsuc[i].style.border="#CCD4DA solid 1px";
-            }else
-            bdsuc[i].style.border=" 2px solid red";
-    
-        }
-    
-    
-    }
+   
     
     for(i=0;i<bdch.length;i++){
        if(bdch[i].value!=0){
@@ -95,22 +65,22 @@ function ajouteragence(){
        
     }
    
-    if(cas==9){
+    if(cas==6){
         dbprix=JSON.stringify(dbprix);
      data+="&tab="+dbprix;
-     ajouter(data,email,pw);
+     ajouter(data);
     }
     }
     /////////////////////////////////
     
-     function ajouter(data,email,pw){
+     function ajouter(data){
         var xhr=new XMLHttpRequest();
         xhr.onreadystatechange=function(){
               if(this.readyState==4 && this.status==200)
               {
                   var cas=this.response;
                   if(cas==1)
-                   alert("Email : "+email+" et  Mot de passe :"+pw);
+                   alert("demande Envoyer");
               }
               }
               xhr.open("POST","../php/ajouagence.php",true);

@@ -123,3 +123,56 @@ function changerPassword(){
     }
 
 
+
+  function confermation(){
+   var user=document.getElementById('user').value;
+   var pw=document.getElementById('pw').value;
+   var pwconf=document.getElementById('pwconf').value;
+  var xhr =new XMLHttpRequest();
+  xhr.onreadystatechange=function (){
+  if(this.readyState==4 && this.status==200){
+         var data =this.responseText;
+      if(data==1)
+      {
+        $.notify({ 
+          message: " Votre Site Web Cree avec Succes  ",
+        },
+        {
+              type: 'success'
+          });
+          window.location.href="/ScreenDayPro2/sign-in.html"
+      }else
+      {
+        $.notify({ 
+          message: " Probleme de Confermation ",
+        },
+        {
+              type: 'danger'
+          });
+      }
+  }
+  }
+
+  if(user!=""&&pw!=""&&pwconf!=""&&pwconf==pw){
+  xhr.open("POST","../php/ajouagence.php",true);
+  xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    xhr.send("op=4&user="+user+"&pw="+pw); 
+  }
+                if(user=="" ) 
+                 document.getElementById("user").style.border=' solid 1px red';
+                else
+                  document.getElementById("user").style.border="#CCD4DA solid 1px";
+                if(pw=="" ) 
+                 document.getElementById("pw").style.border=' solid 1px red';
+                 else
+                 document.getElementById("pw").style.border="#CCD4DA solid 1px";  
+                 if(pwconf=="" ) 
+                 document.getElementById("pwconf").style.border=' solid 1px red';
+                 else
+                 document.getElementById("pwconf").style.border="#CCD4DA solid 1px";  
+
+                 if(pw!=pwconf){
+ document.getElementById("pwconf").style.border=' solid 1px red';
+                 }
+     
+  }

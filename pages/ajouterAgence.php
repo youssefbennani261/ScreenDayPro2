@@ -127,31 +127,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="header">
-                            <h2><strong>Login</strong>  El Mot de passe</h2>
-                        </div>
-                        <div class="body">
-                            <div class="row">
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="form-group">
-                                        <input type="text"id="user" class="form-control info-suc" placeholder="Login">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="form-group">
-                                        <input type="password" id="pw" class="form-control info-suc" placeholder="Mot de passe">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-12">
-                                    <div class="form-group">
-                                        <input type="password"  id="pwconferm" class="form-control info-suc" placeholder="Confirmation Mot de passe">
-                                    </div>
-                                </div>
-                                                         
-                            </div>                              
-                        </div>
-                    </div>
+                   
                     
                     <div class="card">
                         <div class="header">
