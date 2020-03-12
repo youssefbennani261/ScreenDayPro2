@@ -105,6 +105,11 @@ if($op==8){
     while($row=$req->fetch_array()){
         $tab[]=array("nbr"=>$row[0],"nom"=>$row[1]);
     }
+    $req2=mysqli_query($con,"select  count(id_email),Nom FROM emails e  JOIN agence a on a.Num_agence=e.Num_agence WHERE e.Num_Riad='{$_SESSION["riad"][0]}' and sender='agence' and deleted=0");
+    while($row=$req2->fetch_array()){
+        $tab2[]= array("nbr"=>$row[0],"nom"=>$row[1]);
+    }
+    $tab=array_merge($tab,$tab2);
    echo json_encode($tab);
 }
 mysqli_close($con);
