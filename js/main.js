@@ -1,18 +1,30 @@
 function getNotification(){
     $.get("../php/riad.php",{op:8},function(data){ 
         let tab=JSON.parse(data);
-        console.log(tab);
         let s="";
         for(let i=0;i<tab.length;i++){
-            s+=`<li>
-            <a href="http://localhost:8080/ScreenDayPro2/pages/demande.php">
-                <div class="icon-circle bg-blue"><i class="zmdi zmdi-account"></i></div>
-                <div class="menu-info">
-                    <h4>${parseInt(tab[i].nbr)>1 ? `${tab[i].nbr} Nouvelles demande` :`${tab[i].nbr} Nouvelle demandes`}</h4>
-                    <p>${tab[i].nom}</p>
-                </div>
-            </a>
-        </li>`;
+            if(i==0){
+                s+=`<li>
+                <a href="http://localhost:8080/ScreenDayPro2/pages/demande.php">
+                    <div class="icon-circle bg-blue"><i class="zmdi zmdi-account"></i></div>
+                    <div class="menu-info">
+                        <h4>${parseInt(tab[i].nbr)>1 ? `${tab[i].nbr} Nouvelles demande` :`${tab[i].nbr} Nouvelle demandes`}</h4>
+                        <p>${tab[i].nom}</p>
+                    </div>
+                </a>
+            </li>`;
+            }
+            else if(i==1){
+                s+=`<li>
+                <a href="http://localhost:8080/ScreenDayPro2/pages/demande.php">
+                    <div class="icon-circle bg-blue"><i class="zmdi zmdi-email"></i></div>
+                    <div class="menu-info">
+                        <h4>${parseInt(tab[i].nbr)>1 ? `${tab[i].nbr} Nouvelles message` :`${tab[i].nbr} Nouvelle messages`}</h4>
+                        <p>${tab[i].nom}</p>
+                    </div>
+                </a>
+            </li>`;
+              }
         }
         
         $("#noti").html(s);
