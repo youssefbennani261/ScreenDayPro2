@@ -146,7 +146,7 @@ $(function() {
             })
 
             $("#send").click(()=>{
-                if(verificationdemande()==true || $("#respo").html()=="")
+                if(verificationdemande()==true || $("#respo").val()=="")
                 {
                     $.notify({
                         message: "Remplir tous les champs svp",
@@ -185,12 +185,29 @@ $(function() {
                 // alert('selected ' + startDate.format() + ' to ' + endDate.format());
                 let demande=[];
                 $("#addDirectEvent").modal('toggle');
+                function formatDate(date) {
+                    var d = new Date(date),
+                        month = '' + (d.getMonth() + 1),
+                        day = '' + d.getDate(),
+                        year = d.getFullYear();
+                
+                    if (month.length < 2) 
+                        month = '0' + month;
+                    if (day.length < 2) 
+                        day = '0' + day;
+                
+                    return [year, month, day].join('-');
+                }
+                let newDate = new Date(endDate.year(), endDate.month(), endDate.date()-1);
+               let myenddate=formatDate(newDate);
+ 
+
                 let s=`
                     <div class="form-group">
                         <label>A partir</label>
                         <input disabled class="form-control" id="datede" name="event-name" type="text" value=${startDate.format()} /><br>
                         <label>Jusqu'a</label>
-                        <input disabled class="form-control" id="datefin" name="event-name" type="text" value=${endDate.format()} /><br>
+                        <input disabled class="form-control" id="datefin" name="event-name" type="text" value=${myenddate} /><br>
                         <label>Nom responsable</label>
                         <input  class="form-control" name="event-name" type="text" id="respo" /><br>
                         <label>Nombre de Personne</label>
@@ -213,7 +230,8 @@ $(function() {
                 }
             })
             $("#send").click(()=>{
-                if(verificationdemande()==true || $("#respo").html()==""){
+                if(verificationdemande()==true || $("#respo").val()==""){
+                    alert("2");
                 $.notify({
                     message: "Remplir tous les champs svp",
                   },

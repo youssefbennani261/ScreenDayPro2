@@ -16,7 +16,7 @@ function getNotification(){
             }
             else if(i==1){
                 s+=`<li>
-                <a href="http://localhost:8080/ScreenDayPro2/pages/demande.php">
+                <a href="http://localhost:8080/ScreenDayPro2/pages/email.php">
                     <div class="icon-circle bg-blue"><i class="zmdi zmdi-email"></i></div>
                     <div class="menu-info">
                         <h4>${parseInt(tab[i].nbr)>1 ? `${tab[i].nbr} Nouvelles message` :`${tab[i].nbr} Nouvelle messages`}</h4>
@@ -367,7 +367,7 @@ if(window.location.pathname=="/ScreenDayPro2/pages/email.php"){
             <div class="card">
                 <div class="body mb-2">
                     <div class="form-group">
-                        <select class="form-control" id=agences></select>
+                        <select class="form-control" id=agencesreceiver></select>
                     </div>
                     <div class="form-group mb-0">
                         <input type="text" class="form-control sujet" placeholder="Subject" />
@@ -388,10 +388,10 @@ if(window.location.pathname=="/ScreenDayPro2/pages/email.php"){
             lang: 'fr-FR'
           });
           for(let i=0;i<agences.length;i++){
-            $("#agences").append(new Option(agences[i].Nom,agences[i].Num_agence));
+            $("#agencesreceiver").append(new Option(agences[i].Nom,agences[i].Num_agence));
         }
         $("#sendmsg").click(()=>{
-            $.post("../php/email.php",{op:3,agence:$("#agences").val(),sujet:$(".sujet").val(),content:$('.summernote').summernote('code')},(data)=>{
+            $.post("../php/email.php",{op:3,agence:$("#agencesreceiver").val(),sujet:$(".sujet").val(),content:$('.summernote').summernote('code')},(data)=>{
                 $.notify({
                     message: "Email a été envoyé avec succes",
                   },

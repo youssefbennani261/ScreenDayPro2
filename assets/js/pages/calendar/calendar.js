@@ -1,21 +1,3 @@
-// var comp;
-// function getdata(){
-// var reservation;
-// let demandes2;
-//     $.get("../php/riad.php",{op:2},function(data){
-//         reservation=JSON.parse(data);
-//     })
-//     $.get("../php/riad.php",{op:7},function(data){
-//         demandes2=JSON.parse(data);
-//      comp=reservation.concat(demandes2);
-//          console.log(comp);
-//          $.each(comp, function(index, event){
-//             $('#calendar').fullCalendar('renderEvent', event);
-//         });
-//     })
-//     return comp;
-// }
-// getdata();
 var comp;
 
 var reservation;
@@ -45,14 +27,13 @@ $(function() {
 
             center: '',
 
-            right: 'prev, next'
+            right: 'prev, next',
+
 
         },
-
-        eventStartEditable:false,
-
         events: comp,
-        
+        displayEventTime: false,
+
         eventClick: function(e) { 
             if(e.className[0]=="bg-success"){
             let detail=JSON.parse(e.detail);

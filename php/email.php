@@ -78,7 +78,7 @@
     echo json_encode($tab);
   }
   if(isset($_SESSION["agence"])){
-    $req=mysqli_query($con,"select Nom,sujet,content,a.logo_src,Nom_Riad,date_envoi from emails e join riad r on e.Num_Riad=r.Num_Riad join agence a on e.Num_agence=a.Num_agence where e.Num_riad='{$_SESSION["agence"][10]}' and sender='agence'");
+    $req=mysqli_query($con,"select Nom,sujet,content,a.logo_src,Nom_Riad,date_envoi from emails e join riad r on e.Num_Riad=r.Num_Riad join agence a on e.Num_agence=a.Num_agence where e.Num_agence='{$_SESSION["agence"][0]}' and sender='agence'");
     while($row=$req->fetch_array()){
       $tab[]=array("Nom_agg"=>$row[0],"sujet"=>$row[1],"content"=>$row[2],"logo_src"=>$row[3],"nom_riad"=>$row[4],"date_envoi"=>$row[5]);
     }
