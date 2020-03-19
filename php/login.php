@@ -1,9 +1,13 @@
 <?php
 #ini_set("display_errors",1);
 require("connection.php");
-$login=isset($_POST["login"])?$_POST["login"]:"";
-$pwd=isset($_POST["pwd"])?$_POST["pwd"]:"";
-$pwd1=md5($pwd);
+
+
+$login=mysqli_real_escape_string($con,$_POST["login"])?mysqli_real_escape_string($con,$_POST["login"]):0;
+$pwd1=md5(mysqli_real_escape_string($con,$_POST["pwd"])?mysqli_real_escape_string($con,$_POST["pwd"]):0);
+
+
+
 $req=mysqli_query($con,"select * from riad where (Email='".$login."' or Login='".$login."' )  and Motdepasse='".$pwd1."'");
 if($req->num_rows>0){
 session_start();

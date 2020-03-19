@@ -1,17 +1,17 @@
 <?php
 require("connection.php");
 require("PHPMailerAutoload.php");
-$op=isset($_POST['op'])?$_POST['op']:0;
-$user=isset($_POST['user'])?$_POST['user']:'';
-$pw= md5(isset($_POST['pw'])?$_POST['pw']:'');
-$nomagence=isset($_POST['nomagence'])?$_POST['nomagence']:'';
-$directeur=isset($_POST['directeuragence'])?$_POST['directeuragence']:'';
-$adresse=isset($_POST['adresse'])?$_POST['adresse']:'';
-$telephone=isset($_POST['telephone'])?$_POST['telephone']:'';
-$email=isset($_POST['email'])?$_POST['email']:'';
-$dateinscription=isset($_POST['dateinscription'])?$_POST['dateinscription']:'';
+$op=mysqli_real_escape_string($con,$_POST["op"])?mysqli_real_escape_string($con,$_POST["op"]):0;
+$user=mysqli_real_escape_string($con,$_POST["user"])?mysqli_real_escape_string($con,$_POST["user"]):'';
+$pw= md5( mysqli_real_escape_string($con,$_POST["pw"])?mysqli_real_escape_string($con,$_POST["pw"]):'');
+$nomagence=mysqli_real_escape_string($con,$_POST["nomagence"])?mysqli_real_escape_string($con,$_POST["nomagence"]):'';
+$directeur=mysqli_real_escape_string($con,$_POST["directeuragence"])?mysqli_real_escape_string($con,$_POST["directeuragence"]):'';
+$adresse=mysqli_real_escape_string($con,$_POST["adresse"])?mysqli_real_escape_string($con,$_POST["adresse"]):'';
+$telephone=mysqli_real_escape_string($con,$_POST["telephone"])?mysqli_real_escape_string($con,$_POST["telephone"]):'';
+$email=mysqli_real_escape_string($con,$_POST["email"])?mysqli_real_escape_string($con,$_POST["email"]):'';
+$dateinscription=mysqli_real_escape_string($con,$_POST["dateinscription"])?mysqli_real_escape_string($con,$_POST["dateinscription"]):'';
+$tabe=mysqli_real_escape_string($con,$_POST["tab"])?mysqli_real_escape_string($con,$_POST["tab"]):'';
 
-$tabe=isset($_POST['tab'])?$_POST['tab']:'';
 $a=[];
 session_start();
 if($op==1){

@@ -2,16 +2,20 @@
 session_start();
 require("connection.php");
 require("PHPMailerAutoload.php");
-$op=isset($_POST['op'])?$_POST['op']:0;
-$user=isset($_POST['user'])?$_POST['user']:'';
-$pw= md5(isset($_POST['pw'])?$_POST['pw']:'');
-$pwafter= md5( isset($_POST['pwafter'])?$_POST['pwafter']:'');
-$nom=isset($_POST['nomriad'])?$_POST['nomriad']:'';
-$directeur=isset($_POST['Directeur'])?$_POST['Directeur']:'';
-$email=isset($_POST['email'])?$_POST['email']:'';
-$detail=isset($_POST['Detail'])?$_POST['Detail']:'';
-$adresse=isset($_POST['adresse'])?$_POST['adresse']:'';
 $cas=-1;
+$op=mysqli_real_escape_string($con,$_POST["op"])?mysqli_real_escape_string($con,$_POST["op"]):0;
+$user=mysqli_real_escape_string($con,$_POST["user"])?mysqli_real_escape_string($con,$_POST["user"]):'';
+$pw=md5(mysqli_real_escape_string($con,$_POST["pw"])?mysqli_real_escape_string($con,$_POST["pw"]):'');
+$pwafter=md5( mysqli_real_escape_string($con,$_POST["pwafter"])?mysqli_real_escape_string($con,$_POST["pwafter"]):'');
+$nom=mysqli_real_escape_string($con,$_POST["nomriad"])?mysqli_real_escape_string($con,$_POST["nomriad"]):'';
+$directeur=mysqli_real_escape_string($con,$_POST["Directeur"])?mysqli_real_escape_string($con,$_POST["Directeur"]):'';
+$email=mysqli_real_escape_string($con,$_POST["email"])?mysqli_real_escape_string($con,$_POST["email"]):'';
+$detail=mysqli_real_escape_string($con,$_POST["Detail"])?mysqli_real_escape_string($con,$_POST["Detail"]):'';
+$adresse=mysqli_real_escape_string($con,$_POST["adresse"])?mysqli_real_escape_string($con,$_POST["adresse"]):'';
+
+
+
+
 $a=$_SESSION['riad'][0];
   if($op==1){
      $ver=mysqli_query($con,"select * From  riad where Login='".$user."' and Motdepasse='".$pw."'")  or die ("!!!!!!!!!!!!!!!!!!!!!!!!!!!");

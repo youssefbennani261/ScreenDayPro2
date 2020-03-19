@@ -297,7 +297,7 @@ if(!isset($_SESSION["riad"])){header("Location: http://localhost:8080/ScreenDayP
                                 </div>
                                
                                 <div class="col-12">
-                                    <button class="btn btn-info" onclick="changerPassword()">Save Changes</button>
+                                    <button class="btn btn-info" onclick="changerPassword()">Envoyer le demande </button>
                                 </div>                                
                             </div>                              
                         </div>
