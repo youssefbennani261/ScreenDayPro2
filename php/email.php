@@ -9,6 +9,8 @@
   $sujet=isset($_POST['sujet'])?$_POST['sujet']:"";
   $content=isset($_POST['content'])?$_POST['content']:"";
   $emails=isset($_POST['emails'])?$_POST['emails']:"";
+  $email=isset($_POST['email'])?$_POST['email']:'';
+
   if($op==1){
       if(isset($_SESSION["riad"])){
           $req=mysqli_query($con,"select logo_src,Nom,sujet,content,e.num_agence,id_email,date_envoi from emails e join agence a on a.Num_agence=e.Num_agence where e.Num_Riad='{$_SESSION["riad"][0]}' and sender='agence' and deleted=0");
@@ -117,8 +119,63 @@
   // function sendmail($to,$sujet,$message){
     
 
+
+
+
+
+
+
+
+
+
+
   // }
 
+  if($op==6)
+{
+
+   $req=mysqli_query($con," select  Nom, Email from agence WHERE Email='".$email."' ") or die ("error d connexion ");
+   if(mysqli_num_rows($req)==0){
+     $req2=mysqli_query($con,"select  Nom_Riad , Email from riad WHERE Email='".$email."'") or die("probleme de Connexion !!!!!!");
+     if(mysqli_num_rows($req2)){
+      while($row= mysqli_fetch_array($req2))
+      {  
+     $mail=array("nom"=>$row[0],"email"=>$row[1]);
+      }
+      $mail=new PHPMailer();
+      $mail->isSMTP();
+      $mail->Host='';
+      $mail->Port=587;
+      $mail->SMTPAuth=true;
+      $mail->SMTPSecure='tls';
+      $mail->Username='';
+      $mail->Password='';
+      $mail->setFrom('');
+      $mail->addAddress('');
+      $mail->addReplyTo('');
+      $mail->isHTML(true);
+      $mail->Subject='test';
+      $mail->Body='test testtesttesttesttesttest';
+      if(!$mail->send())
+      echo "walo";
+      else 
+      echo "kayn";
 
 
+
+     }
+   }
+   if(mysqli_num_rows($req)){
+
+
+
+
+   }
+   
+
+
+
+
+
+}
 ?>

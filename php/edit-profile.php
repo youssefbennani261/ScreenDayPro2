@@ -26,7 +26,7 @@ $a=$_SESSION['riad'][0];
      $mail->Username='';
      $mail->Password='';
      $mail->setFrom($_SESSION['riad'][5],$_SESSION['riad'][1]);
-     $mail->addAddress('TannoucheBennaniYoussef@gmail.com');
+     $mail->addAddress('');
      $mail->addReplyTo('');
      $mail->isHTML(true);
      $mail->Subject='Nouvelle Demande ! ';

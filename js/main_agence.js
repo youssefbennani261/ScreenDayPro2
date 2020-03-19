@@ -14,7 +14,7 @@ if(window.location.pathname=="/ScreenDayPro2/pages/demandes_agence.php"){
         $("#tabledem").html(s);
             
         })
-        
+                
     }
 if(window.location.pathname=="/ScreenDayPro2/pages/email_agence.php"){
     $("#demandes").removeClass("active open");

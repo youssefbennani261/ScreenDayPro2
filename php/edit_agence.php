@@ -52,7 +52,7 @@ session_start();
         $mail->Username='';
         $mail->Password='';
         $mail->setFrom($_SESSION['agence'][6],$_SESSION['agence'][1]);
-        $mail->addAddress('TannoucheBennaniYoussef@gmail.com');
+        $mail->addAddress('@gmail.com');
         $mail->addReplyTo('');
         $mail->isHTML(true);
         $mail->Subject='Nouvelle Demande ! ';
@@ -75,6 +75,83 @@ if($op==4){
    }else
     echo $cas=0;
 } 
+if($op==5){
+
+  $req1=mysqli_query($con,"select Email from riad WHERE Email='".$email."'");
+    if(mysqli_num_rows($req1)==0){
+      $req2=mysqli_query($con,"select Email from agence WHERE Email='".$email."'");
+        if(mysqli_num_rows($req2)){
+            $timestamp = date("Y-m-d H:i:s");
+            $mail=new PHPMailer();
+            $mail->isSMTP();
+            $mail->Host='smtp.gmail.com';
+            $mail->Port=587;
+            $mail->SMTPAuth=true;
+            $mail->SMTPSecure='tls';
+            $mail->Username='';
+            $mail->Password='';
+            $mail->setFrom('security','Recuperatoin le Mot de passe');
+            $mail->addAddress($email);
+            $mail->addReplyTo('Demande');
+            $mail->isHTML(true);
+            $mail->Subject='Nouvelle Demande ! ';
+            $mail->Body="Envoyer la demande De Recuperation Mot de passe dans une heure '".$timestamp."' pour Recuperation le mot de passe <a href='http://localhost:8080/ScreenDayPro2/pages/recuperation.html'>Cliquez Ici pour changer le mot de passe  </a> ";
+            if(!$mail->send())
+            echo 0;
+            else 
+            echo 1;
+
+        }
+        else
+        echo 0;
+
+
+    }
+    else{
+
+        $timestamp = date("Y-m-d H:i:s");
+        $mail=new PHPMailer();
+        $mail->isSMTP();
+        $mail->Host='smtp.gmail.com';
+        $mail->Port=587;
+        $mail->SMTPAuth=true;
+        $mail->SMTPSecure='tls';
+        $mail->Username='';
+        $mail->Password='';
+        $mail->setFrom('security','Recuperatoin le Mot de passe');
+        $mail->addAddress($email);
+        $mail->addReplyTo('Demande');
+        $mail->isHTML(true);
+        $mail->Subject='Nouvelle Demande ! ';
+        $mail->Body="Envoyer la demande De Recuperation Mot de passe dans une heure '".$timestamp."' pour Recuperation le mot de passe <a href='http://localhost:8080/ScreenDayPro2/pages/recuperation.html'>Cliquez Ici pour changer le mot de passe  </a> ";
+        if(!$mail->send())
+        echo 0;
+        else 
+        echo 1;
+    }
+}
+
+if($op==6){
+
+    $req1=mysqli_query($con,"select Email from riad WHERE Email='".$email."'");
+    if(mysqli_num_rows($req1)==0){
+      $req2=mysqli_query($con,"select Email from agence WHERE Email='".$email."'");
+        if(mysqli_num_rows($req2)){ 
+            $r=mysqli_query($con,"update agence set Motdepasse='".$pw."' where Email='".$email."'");
+            echo 1;
+        }
+        else
+        echo 0;
+
+
+    }
+    else{
+      $r=mysqli_query($con,"update riad set Motdepasse='".$pw."' where Email='".$email."'");
+        echo 1;
+
+    }
+}
+
 
 if($_FILES["file"]["name"] != '')
 {

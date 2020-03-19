@@ -32,13 +32,19 @@ if($op==1){
    $mail->Username='';
    $mail->Password='';
    $mail->setFrom($_SESSION['riad'][5],$_SESSION['riad'][1]);
-   $mail->addAddress("'".$email."'");
-   $mail->addReplyTo('');
+   $mail->addAddress($email);
+   $mail->addReplyTo('Demande');
    $mail->isHTML(true);
    $mail->Subject='Nouvelle Demande ! ';
-   $mail->Body="Envoyer la demande de ".$_SESSION['riad'][1]." dans une heure '".$timestamp."' pour Confirmation Creation votre site Web <a href='http://localhost:8080/ScreenDayPro2/pages/createLogin.html?id=3'>Cliquez Ici pour changer le mot de passe  </a> ";
-   
- echo 1;
+   $mail->Body="Envoyer la demande de ".$_SESSION['riad'][1]." dans une heure '".$timestamp."' pour Confirmation Creation votre site Web <a href='http://localhost:8080/ScreenDayPro2/pages/createLogin.html'>Cliquez Ici pour changer le mot de passe  </a> ";
+   if($mail->send()){
+      echo 1;
+   }
+   else 
+   echo 0;
+
+
+ 
 }
 if($op==2){
      $req=mysqli_query($con,"select num_chambre,Designation,Nbr_Adulte,nbr_enfent from chambre where Num_Riad=".$_SESSION['riad'][0]."") or die ("!!!!!!!!!!!!!!!!!!");
