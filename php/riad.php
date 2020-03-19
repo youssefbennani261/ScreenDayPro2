@@ -1,7 +1,7 @@
 <?php
 require("connection.php");
 session_start();
-$op=mysqli_real_escape_string($con,$_GET["op"])?mysqli_real_escape_string($con,$_GET["op"]):0;
+$op=mysqli_real_escape_string($con,$_GET["op"]);
 if($op==1){
     $req=mysqli_query($con,"select COUNT(Id_reservation)
     FROM reservation r 
