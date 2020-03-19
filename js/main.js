@@ -465,3 +465,87 @@ if(window.location.pathname=="/ScreenDayPro2/pages/email.php"){
 
     
 }
+
+  function env(){
+     
+    var email=document.getElementById("em").value;  
+      var xhr=new XMLHttpRequest();
+     xhr.onreadystatechange=function(){
+     if(this.status==200 && this.readyState==4){
+      var data=this.responseText;
+      if(data==1){
+
+        $.notify({
+            message: "Demande a été envoyé avec succes",
+          },
+          {
+                type: 'success'
+            });
+    
+
+      }
+      else{
+
+
+        $.notify({
+            message: " Email introvable",
+          },
+          {
+                type: 'danger'
+            });
+      
+        
+      }
+
+
+   }
+ }
+    xhr.open("POST","../php/edit_agence.php",true);
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");  
+    xhr.send("op=5&email="+email);
+}
+  function nouveau(){
+     
+    var email=document.getElementById("em").value;  
+    var pw=document.getElementById("pw").value;
+    var pwcon=document.getElementById("pwcon").value;  
+
+
+      var xhr=new XMLHttpRequest();
+     xhr.onreadystatechange=function(){
+     if(this.status==200 && this.readyState==4){
+      var data=this.responseText;
+      if(data==1){
+
+        $.notify({
+            message: "Mot de passe Changer avec succes",
+          },
+          {
+                type: 'success'
+            });
+    
+   window.location.href="http://localhost:8080/ScreenDayPro2/sign-in.html";
+      }
+      else{
+
+
+        $.notify({
+            message: " Email Introuvable",
+          },
+          {
+                type: 'danger'
+            });
+      
+        
+      }
+
+
+   }
+ }
+    if(pw!="" && pw==pwcon ){
+    xhr.open("POST","../php/edit_agence.php",true);
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");  
+    xhr.send("op=6&email="+email+"&pw="+pw);
+}
+}
+
