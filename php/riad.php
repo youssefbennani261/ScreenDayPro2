@@ -95,10 +95,16 @@ if($op==6){
 }
 if($op==7){
     $req=mysqli_query($con,"select Nom,DATE(date_debut),DATE_ADD(DATE(date_fin), INTERVAL 1 DAY),detail from demande d join agence a on a.Num_agence=d.Num_agence where d.num_riad='{$_SESSION["riad"][0]}' and vérifié=0");
-    while($row=$req->fetch_array()){
-        $tab[]=array("title"=>$row[0],"start"=>$row[1],"end"=>$row[2],"className"=>"bg-danger");
+    if($req->num_rows === 0){
+        echo "not found";
     }
-    echo json_encode($tab);
+    else{
+        while($row=$req->fetch_array()){
+            $tab[]=array("title"=>$row[0],"start"=>$row[1],"end"=>$row[2],"className"=>"bg-danger");
+        }
+        echo json_encode($tab);
+    }
+
 }
 if($op==8){
     $req=mysqli_query($con,"select count(Num_demande),Nom from demande d JOIN agence a on a.Num_agence=d.Num_agence where vérifié=0 and d.num_riad='{$_SESSION["riad"][0]}'");

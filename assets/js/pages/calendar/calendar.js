@@ -1,17 +1,24 @@
-var comp;
+var comp=[];
 
 var reservation;
 let demandes2;
 $.get("../php/riad.php",{op:2},function(data){
     reservation=JSON.parse(data);
+   comp=comp.concat(reservation);
+
 })
 $.get("../php/riad.php",{op:7},function(data){
-    demandes2=JSON.parse(data);
- comp=reservation.concat(demandes2);
-     console.log(comp);
-     $.each(comp, function(index, event){
-        $('#calendar').fullCalendar('renderEvent', event);
-    });
+    if(data==="not found"){
+        return
+    }
+    else{
+        demandes2=JSON.parse(data);
+        comp=reservation.concat(demandes2);
+            $.each(comp, function(index, event){
+               $('#calendar').fullCalendar('renderEvent', event);
+           });
+    }
+
 })
 $(function() {
 
