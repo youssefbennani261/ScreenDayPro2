@@ -1,10 +1,7 @@
 <?php
 require("connection.php");
 session_start();
-$op=isset($_GET["op"])?$_GET["op"]:0;
-$prix=isset($_GET["prix"])?$_GET["prix"]:0;
-$demade=isset($_GET["demade"])?$_GET["demade"]:0;
-$num_agence=isset($_GET["num_agence"])?$_GET["num_agence"]:0;
+$op=mysqli_real_escape_string($con,$_GET["op"])?mysqli_real_escape_string($con,$_GET["op"]):0;
 if($op==1){
     $req=mysqli_query($con,"select COUNT(Id_reservation)
     FROM reservation r 
@@ -66,6 +63,7 @@ if($op==3){
     echo json_encode($tab);
 }
 if($op==4){
+    $num_agence=mysqli_real_escape_string($con,$_GET["num_agence"]);
     $req=mysqli_query($con,"select num_chambre,Nbr_Adulte,nbr_enfent from chambre where Cas_reservation=0 and Num_riad='{$_SESSION["riad"][0]}'");
     $req2=mysqli_query($con,"select * from prix_chambre where Num_agence='".$num_agence."'");
     while($row=$req->fetch_array())
@@ -76,6 +74,10 @@ if($op==4){
 }
 
 if($op==5){
+    $demade=mysqli_real_escape_string($con,$_GET["demade"]);
+$num_agence=mysqli_real_escape_string($con,$_GET["num_agence"]);
+$prix=mysqli_real_escape_string($con,$_GET["prix"])?mysqli_real_escape_string($con,$_GET["prix"]):0;
+
     $timestamp = date("Y-m-d H:i:s");
     $tab=json_decode($prix, true);
     foreach ($tab as $item) {
@@ -91,6 +93,8 @@ if($op==5){
        echo "1";
 }
 if($op==6){
+    $demade=mysqli_real_escape_string($con,$_GET["demade"]);
+
     $req=mysqli_query($con,"update demande set vérifié=2 where Num_Demande ='".$demade."'");
 }
 if($op==7){
