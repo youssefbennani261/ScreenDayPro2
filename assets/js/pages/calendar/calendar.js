@@ -5,19 +5,18 @@ let demandes2;
 $.get("../php/riad.php",{op:2},function(data){
     reservation=JSON.parse(data);
    comp=comp.concat(reservation);
+   $.each(reservation, function(index, event){
+    $('#calendar').fullCalendar('renderEvent', event);
+});
 
 })
 $.get("../php/riad.php",{op:7},function(data){
-    if(data==="not found"){
-        return
-    }
-    else{
         demandes2=JSON.parse(data);
         comp=reservation.concat(demandes2);
-            $.each(comp, function(index, event){
+            $.each(demandes2, function(index, event){
                $('#calendar').fullCalendar('renderEvent', event);
            });
-    }
+    
 
 })
 $(function() {
@@ -38,7 +37,6 @@ $(function() {
 
 
         },
-        events: comp,
         displayEventTime: false,
 
         eventClick: function(e) { 

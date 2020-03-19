@@ -76,7 +76,7 @@ if($op==4){
 if($op==5){
     $demade=mysqli_real_escape_string($con,$_GET["demade"]);
 $num_agence=mysqli_real_escape_string($con,$_GET["num_agence"]);
-$prix=mysqli_real_escape_string($con,$_GET["prix"])?mysqli_real_escape_string($con,$_GET["prix"]):0;
+$prix=$_GET["prix"];
 
     $timestamp = date("Y-m-d H:i:s");
     $tab=json_decode($prix, true);
